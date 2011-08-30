@@ -6,7 +6,7 @@
 :Author Initials: JMI
 :Date:   August, 2011
 :Email:   inglebert@iut-blagnac.fr
-:revnumber: 1.0.1
+:revnumber: 1.0.2
 :slideshowlocation: Your Computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :duration: 7
