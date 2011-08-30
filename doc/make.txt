@@ -1,0 +1,176 @@
+= make.txt : an AsciiDoc poor man Makefile
+
+
+// edit accordingly to your AsciiDoc/OS settings
+ifdef::nt[]
+:asciidocdir: X:\path\to\asciidoc\
+:asciidocdir: D:\\JMI\\tools\\tmp2\\asciidoc\\
+:asciidocbin: {asciidocdir}asciidoc.py -v
+:cp: copy
+:ditaajar: X:\path\to\ditaa\ditaa0_9.jar
+:ditaajar: D:\JMI\tools\ditaa\ditaa0_9.jar
+:dbdir: D:\\JMI\\tools\\docbook\\
+:xsltprocbin: {dbdir}bin\\xsltproc
+:fopbin: {dbdir}fop\\fop.bat
+:websitedir: website\\slidy2\\
+endif::nt[]
+
+ifdef::posix[]
+:asciidocdir: /etc/asciidoc/
+:asciidocdir: /home/jmi/public_html/tmp/asciidoc/
+:asciidocbin: {asciidocdir}asciidoc.py
+:cp: cp 
+:ditaajar: /path/to/ditaa/ditaa0_9.jar
+:websitedir: website/slidy2/
+endif::posix[]
+
+:scriptsdir: {asciidocdir}javascripts
+:stylesdir: {asciidocdir}stylesheets
+
+// output files relative paths
+:iconsdir: ../images/icons
+
+// remove exclamation mark (!) to select output
+:html:
+:slidy:
+:pdf:
+:ditaa!:
+
+// remove exclamation mark (!) to select audience
+:local:
+:website!:
+
+// remove exclamation mark (!) to select document source
+:doc1: slidy2_doc
+:doc2!: 
+:doc3!: 
+:doc4!: 
+
+// remove exclamation mark (!) to force compilation
+:force!:
+
+
+// generic commands defs
+:cmddb: {asciidocbin} -b docbook
+
+:cmdfo: {xsltprocbin} --stringparam ulink.show 0 --stringparam callout.graphics 1 --stringparam navig.graphics 1 --stringparam admon.textlabel 0 --stringparam admon.graphics 1 --stringparam admon.graphics.path ../images/icons/ --stringparam callout.graphics.path ../images/icons/callouts/ --stringparam navig.graphics.path ../images/icons/
+
+:cmdpdf: a2x -v -f pdf -L --fop --icons-dir=../images/icons
+
+:cmdditaa: java -jar {ditaajar} -r -o 
+
+
+// backends plugins /////////////////////////////////////////
+== backends plugins list
+os:{asciidocbin} --backend list[]
+
+
+// local outputs /////////////////////////////////////////
+ifdef::local[]
+
+== local outputs
+
+:cmdhtml: {asciidocbin} {stylesdir? -a stylesdir={stylesdir}}{scriptsdir? -a scriptsdir={scriptsdir}} -a numbered -a icons {iconsdir? -a iconsdir={iconsdir}} -a badges -a toc
+
+:cmdslidy: {asciidocbin} --backend slidy2 -a numbered -a icons -a badges  {iconsdir? -a iconsdir=../images/icons} -a stylesheet=doc/keycap.css
+
+:cmdslidyX: {asciidocbin} --backend slidy2 -a numbered -a icons -a badges  {iconsdir? -a iconsdir=../images/icons} -a stylesheet=backends/slidy2/doc/keycap.css
+
+:cmdslidyXX: {asciidocbin} --backend slidy2 -a numbered -a icons -a badges  {iconsdir? -a iconsdir=../images/icons} -a stylesheet=./doc/keycap.css
+
+:cmdslidylinkcss: {asciidocbin} --backend slidy2 -a stylesdir=copy_of_css_js  -a scriptsdir=copy_of_css_js {iconsdir? -a iconsdir=../images/icons} -a numbered -a icons -a badges -a stylesheet=keycap.css  -a linkcss
+
+{ditaa}make:{cmdditaa}[osmfmoma1.txt,osmfmoma1.png]
+{ditaa}make:{cmdditaa}[osmfmoma2.txt,osmfmoma2.png]
+{ditaa}make:{cmdditaa}[osmfmoma3.txt,osmfmoma3.png]
+{ditaa}make:{cmdditaa}[osmfmoma4.txt,osmfmoma4.png]
+
+{slidy}asciidoc:{cmdslidy}[{doc1}.txt,{doc1}.slidy.html]
+{slidy}asciidoc:{cmdslidyX}[{doc1}.txt,{doc1}.slidyX.html]
+{slidy}asciidoc:{cmdslidyXX}[{doc1}.txt,{doc1}.slidyXX.html]
+{slidy}asciidoc:{cmdslidy}[{doc2}.txt,{doc2}.slidy.html]
+{slidy}asciidoc:{cmdslidy}[{doc3}.txt,{doc3}.slidy.html]
+
+{slidy}asciidoc:{cmdslidy} -a data-uri[{doc1}.txt,{doc1}.slidy.data-uri.html]
+{slidy}asciidoc:{cmdslidy} -a data-uri[{doc1}.txt,{doc2}.slidy.data-uri.html]
+{slidy}asciidoc:{cmdslidy} -a data-uri[{doc1}.txt,{doc3}.slidy.data-uri.html]
+
+{slidy}asciidoc:{cmdslidylinkcss}[{doc1}.txt,{doc1}.slidy.linkcss.html]
+{slidy}asciidoc:{cmdslidylinkcss}[{doc1}.txt,{doc2}.slidy.linkcss.html]
+{slidy}asciidoc:{cmdslidylinkcss}[{doc1}.txt,{doc3}.slidy.linkcss.html]
+
+{nt}{pdf}asciidoc:{cmddb}[{doc1}.txt,{doc1}.xml]
+{nt}{pdf}asciidoc:{cmddb}[{doc2}.txt,{doc2}.xml]
+{nt}{pdf}asciidoc:{cmddb}[{doc3}.txt,{doc3}.xml]
+
+{nt}{pdf}os:{cmdfo} --output {doc1}.fo {asciidocdir}docbook-xsl/fo.xsl[{doc1}.xml]
+{nt}{pdf}os:{cmdfo} --output {doc2}.fo {asciidocdir}docbook-xsl/fo.xsl[{doc2}.xml]
+{nt}{pdf}os:{cmdfo} --output {doc3}.fo {asciidocdir}docbook-xsl/fo.xsl[{doc3}.xml]
+
+{nt}{pdf}os:{fopbin}[-fo {doc1}.fo -pdf ,{doc1}.pdf]
+{nt}{pdf}os:{fopbin}[-fo {doc2}.fo -pdf ,{doc2}.pdf]
+{nt}{pdf}os:{fopbin}[-fo {doc3}.fo -pdf ,{doc3}.pdf]
+
+{posix}{pdf}os:{cmdpdf}[{doc1}.txt]
+{posix}{pdf}os:{cmdpdf}[{doc2}.txt]
+{posix}{pdf}os:{cmdpdf}[{doc3}.txt]
+
+{html}asciidoc:{cmdhtml}[{doc1}.txt,{doc1}.html]
+{html}asciidoc:{cmdhtml}[{doc2}.txt,{doc2}.html]
+{html}asciidoc:{cmdhtml}[{doc3}.txt,{doc3}.html]
+
+endif::local[]
+
+// website outputs /////////////////////////////////////////
+ifdef::website[]
+
+:iconsdir: ../images/icons
+
+== website outputs
+
+:cmdhtml: {asciidocbin} {stylesdir? -a stylesdir={stylesdir}}{scriptsdir? -a scriptsdir={scriptsdir}} -a numbered -a icons {iconsdir? -a iconsdir={iconsdir}} -a badges -a toc --conf-file=../website/layout1a.conf
+
+:cmdslidy: {asciidocbin} --backend slidy2 {stylesdir? -a stylesdir={stylesdir}}{scriptsdir? -a scriptsdir={scriptsdir}} -a numbered -a icons {iconsdir? -a iconsdir={iconsdir}} -a badges -a data-uri -b slidy
+
+{slidy}asciidoc:{cmdslidy}[{doc1}.txt,../website/slidy2/{doc1}.slidy.html]
+{slidy}asciidoc:{cmdslidy}[{doc2}.txt,../website/slidy2/{doc2}.slidy.html]
+{slidy}asciidoc:{cmdslidy}[{doc3}.txt,../website/slidy2/{doc3}.slidy.html]
+
+{nt}{pdf}asciidoc:{cmddb}[{doc1}.txt,{doc1}.xml]
+{nt}{pdf}asciidoc:{cmddb}[{doc2}.txt,{doc2}.xml]
+{nt}{pdf}asciidoc:{cmddb}[{doc3}.txt,{doc3}.xml]
+
+{nt}{pdf}os:{cmdfo} --output {doc1}.fo {asciidocdir}docbook-xsl/fo.xsl[{doc1}.xml]
+{nt}{pdf}os:{cmdfo} --output {doc2}.fo {asciidocdir}docbook-xsl/fo.xsl[{doc2}.xml]
+{nt}{pdf}os:{cmdfo} --output {doc3}.fo {asciidocdir}docbook-xsl/fo.xsl[{doc3}.xml]
+
+{nt}{pdf}os:{fopbin}[-fo {doc1}.fo -pdf ,{websitedir}{doc1}.pdf]
+{nt}{pdf}os:{fopbin}[-fo {doc2}.fo -pdf ,{websitedir}{doc2}.pdf]
+{nt}{pdf}os:{fopbin}[-fo {doc3}.fo -pdf ,{websitedir}{doc3}.pdf]
+
+{posix}{pdf}os:{cmdpdf} -D ../website/slidy2[{doc1}.txt]
+{posix}{pdf}os:{cmdpdf} -D ../website/slidy2[{doc2}.txt]
+{posix}{pdf}os:{cmdpdf} -D ../website/slidy2[{doc3}.txt]
+
+{html}asciidoc:{cmdhtml}[{doc1}.txt,../website/slidy2/{doc1}.html]
+{html}asciidoc:{cmdhtml}[{doc2}.txt,../website/slidy2/{doc2}.html]
+{html}asciidoc:{cmdhtml}[{doc3}.txt,../website/slidy2/{doc3}.html]
+
+os:{cp}[slidy.conf,{websitedir}]
+os:{cp}[asciidoc.png,{websitedir}]
+os:{cp}[w3c_home.png,{websitedir}]
+os:{cp}[osmfmoma*.*,{websitedir}]
+os:{cp}[{doc1}.txt,{websitedir}]
+os:{cp}[{doc2}.txt,{websitedir}]
+os:{cp}[{doc3}.txt,{websitedir}]
+os:{cp}[slidy2_color_set_black.css,{websitedir}]
+os:{cp}[slidy2_color_set_blue.css,{websitedir}]
+os:{cp}[slidy2_color_set_green.css,{websitedir}]
+os:{cp}[slidy2_color_set_none.css,{websitedir}]
+os:{cp}[slidy2_color_set_yellow.css,{websitedir}]
+os:{cp}[svg_callouts.py,{websitedir}]
+{oups}os:{cp}[slidy_color_set_*.css,{websitedir}]
+os:{cp}[keycap.css,{websitedir}]
+os:{cp}[slidybackgrounds.txt,{websitedir}slidybackgrounds.txt]
+
+endif::website[]
