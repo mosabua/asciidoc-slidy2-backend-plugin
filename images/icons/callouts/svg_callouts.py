@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # creates SVG callout icons
-# to run under the images/icons/callouts/ directory
+# to run under the backends/slidy2/images/icons/callouts/ directory
 
 numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 for nb in numbers:

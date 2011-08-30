@@ -3,7 +3,7 @@ import os
 import StringIO
 import re
 import unittest
-import datatest
+import asciidoc_inputs
 
 class Slidy2_conf_Test(unittest.TestCase):
 	assert_message_format = "%s\r\n*** Expected :\r\n%s\r\n*** But was :\r\n%s"
@@ -29,145 +29,145 @@ class Slidy2_conf_Test(unittest.TestCase):
 
 	def test_AsciiDoc_version(self):
 		m = 'AsciiDoc version > 8.6.5'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['asciidoc-version'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['asciidoc-version'],'slidy2')
 		expected = r'<div class="paragraph">\r\n<p>(\d+)\.(\d+)\.(\d+)</p>\r\n</div>\r\n'
 		mo = re.match(expected,out)
 		self.assertTrue((int(mo.group(1)) > 8) or ((int(mo.group(1)) == 8) and (int(mo.group(2)) > 6)) or ((int(mo.group(1)) == 8) and (int(mo.group(2)) == 6) and (int(mo.group(3)) > 5)), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_bulleted_list(self):
 		m = 'incremental on bulleted list'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['bulleted_list'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['bulleted_list'],'slidy2',['incremental'])
 		expected = r'<ul[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_numbered_list(self):
 		m = 'incremental on numbered list'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['numbered_list'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['numbered_list'],'slidy2',['incremental'])
 		expected = r'<ol[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_labeled_list(self):
 		m = 'incremental on labeled list'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['labeled_list'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['labeled_list'],'slidy2',['incremental'])
 		expected = r'<dl[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_qanda_list(self):
 		m = 'incremental on qanda list'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['qanda_list'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['qanda_list'],'slidy2',['incremental'])
 		expected = r'<li[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_callout_list(self):
 		m = 'incremental on callout list'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['callout_list'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['callout_list'],'slidy2',['incremental'])
 		expected = r'<li[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 		###
 		m = 'incremental on callout list + icons'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['callout_list'],'slidy2',['incremental','icons'])
+		out = self.asciidoc_output(asciidoc_inputs.d['callout_list'],'slidy2',['incremental','icons'])
 		expected = r'<tbody[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_paragraph(self):
 		m = 'incremental on paragraph'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['paragraph'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['paragraph'],'slidy2',['incremental'])
 		expected = r'<div[^>]*class="[^"]*paragraph[^"]*".*\r\n<div[^>]*class="[^"]*incremental[^"]*">\r\n<p>.*</p>\r\n</div>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_admonitionparagraph(self):
 		m = 'incremental on paragraph'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['admonitionparagraph'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['admonitionparagraph'],'slidy2',['incremental'])
 		expected = r'<div[^>]*class="[^"]*incremental[^"]*"><p>.*</p></div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_listingblock(self):
 		m = 'incremental on listingblock'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['listingblock'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['listingblock'],'slidy2',['incremental'])
 		expected = r'<div[^>]*class="content[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_literalblock(self):
 		m = 'incremental on literalblock'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['literalblock'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['literalblock'],'slidy2',['incremental'])
 		expected = r'<div[^>]*class="content[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_quoteblock(self):
 		m = 'incremental on quoteblock'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['quoteblock'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['quoteblock'],'slidy2',['incremental'])
 		expected = r'<div[^>]*class="attribution[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_verseblock(self):
 		m = 'incremental on verseblock'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['verseblock'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['verseblock'],'slidy2',['incremental'])
 		expected = r'<pre[^>]*class="content[^"]*incremental[^"]*">.*</pre>\r\n<div[^>]*class="attribution[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_table(self):
 		m = 'incremental on table'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['table'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['table'],'slidy2',['incremental'])
 		expected = r'<tbody[^>]*class="[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_incremental_openblock(self):
 		m = 'incremental on openblock'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['openblock'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['openblock'],'slidy2',['incremental'])
 		expected = r'<div[^>]*class="openblock[^"]*incremental[^"]*"'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_nopagebreak(self):
 		m = 'nopagebreak macro unset :slidepagebreak: attribute'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['nopagebreak'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['nopagebreak'],'slidy2')
 		expected = r'<div class="paragraph">\r\n<p>XXX</p>\r\n</div>\r\n<div class="paragraph">\r\n<p></p>\r\n</div>\r\n</div></div>\r\n<script.*/script>\r\n\r\n<div class="sect1">\r\n<h1 id="_section">section</h1>\r\n<script.*/script>\r\n<div class="sectionbody">\r\n<div class="paragraph">\r\n<p>ZZZ</p>\r\n</div>'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_pagebreak(self):
 		m = 'pagebreak macro generate a new slide'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['pagebreak'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['pagebreak'],'slidy2')
 		expected = r'</div></div>\r\n<script.*/script>\r\n</div><div class="slide[^"]*">\r\n<div class="sect1[^"]*">\r\n<script.*/script>\r\n<div class="sectionbody[^"]*">\r\n\r\n<div class="paragraph">\r\n<p>content\r\nXXX</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_backgroundblock(self):
 		m = 'backgroundblock'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['backgroundblock'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['backgroundblock'],'slidy2')
 		expected = '<div class="background[^"]*"[^>]*>\r\n<div class="paragraph">\r\n<p>content</p>\r\n</div>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_inline_footnote(self):
 		m = 'inline footnote:[text]'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['footnote'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['footnote'],'slidy2')
 		expected = '<div class="paragraph">\r\n<p>content1 <script.*/script>\r\n\[1\] content2 <script.*/script>\r\n\[2\]</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_inline_footnoteref(self):
 		m = 'inline footnoteref:[id]'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['footnoteref1'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['footnoteref1'],'slidy2')
 		expected = '<div class="paragraph">\r\n<p>content1 \[id1\] content2 \[id2\]</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 		###
 		m = 'inline footnoteref:[id,text]'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['footnoteref2'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['footnoteref2'],'slidy2')
 		expected = '<div class="paragraph">\r\n<p>content1 <script.*/script>\r\n\[id1\] content2 <script.*/script>\r\n\[id2\]</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
@@ -176,36 +176,36 @@ class Slidy2_conf_Test(unittest.TestCase):
 	def test_incremental_imagesblock(self):
 		images_base_markup = '<div style="margin-left: 4em; position: relative;"%s>\r\n<img src="backends/slidy2/tests/i1.png" alt="backends/slidy2/tests/i1.png" style="position: static; vertical-align: bottom" />\r\n<img src="backends/slidy2/tests/i1.png" alt="backends/slidy2/tests/i1.png" style="position: absolute; left: 0; top: 0" />\r\n<img src="backends/slidy2/tests/i1.png" alt="backends/slidy2/tests/i1.png" style="position: absolute; left: 0; top: 0" />\r\n</div>\r\n'
 		m = 'images::[]'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['imagesblock'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['imagesblock'],'slidy2')
 		expected = images_base_markup % ''
 		r1 = re.compile(expected)
 		self.assertEqual(out, expected, self.assert_message_format % (m,expected,out))
 		###
 		m = 'images::[] + incremental'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['imagesblock'],'slidy2',['incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['imagesblock'],'slidy2',['incremental'])
 		expected = images_base_markup % ' class="incremental"'
 		self.assertEqual(out, expected, self.assert_message_format % (m,expected,out))
 		###
 		images_data_uri_base_markup = '<div style="margin-left: 4em; position: relative;"%s>\r\n<img alt="backends/slidy2/tests/i1.png" style="position: static; vertical-align: bottom"  src="data:image/png;base64,\r\niVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACx\r\njwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFU\r\nGFdjeCujAgADJwEuFWu+6QAAAABJRU5ErkJggg==" />\r\n<img alt="backends/slidy2/tests/i1.png" style="position: absolute; left: 0; top: 0"  src="data:image/png;base64,\r\niVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACx\r\njwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFU\r\nGFdjeCujAgADJwEuFWu+6QAAAABJRU5ErkJggg==" />\r\n<img alt="backends/slidy2/tests/i1.png" style="position: absolute; left: 0; top: 0"  src="data:image/png;base64,\r\niVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACx\r\njwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAxJREFU\r\nGFdjeCujAgADJwEuFWu+6QAAAABJRU5ErkJggg==" />\r\n</div>\r\n'
 		m = 'images::[] + data-uri '
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['imagesblock'],'slidy2',['data-uri'])
+		out = self.asciidoc_output(asciidoc_inputs.d['imagesblock'],'slidy2',['data-uri'])
 		expected = images_data_uri_base_markup % ''
 		self.assertEqual(out, expected, self.assert_message_format % (m,expected,out))
 		###
 		m = 'images::[] + data-uri + incremental'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['imagesblock'],'slidy2',['data-uri','incremental'])
+		out = self.asciidoc_output(asciidoc_inputs.d['imagesblock'],'slidy2',['data-uri','incremental'])
 		expected = images_data_uri_base_markup % ' class="incremental"'
 		self.assertEqual(out, expected, self.assert_message_format % (m,expected,out))
 
 	def test_callout_inlinemacro(self):
 		m = 'callout_inlinemacro'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['callout_inlinemacro'],'slidy2')
+		out = self.asciidoc_output(asciidoc_inputs.d['callout_inlinemacro'],'slidy2')
 		expected = r'<b><1></b>\r\n<b><2></b>\r\n'
 		r1 = re.compile(expected)
 		#TODO self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 		###
 		m = 'callout_inlinemacro + icons'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['callout_inlinemacro'],'slidy2',['icons'])
+		out = self.asciidoc_output(asciidoc_inputs.d['callout_inlinemacro'],'slidy2',['icons'])
 		expected = r'<tbody>\r\n<tr><td><object data="./images/icons/callouts/1.svg" type="image/svg\+xml" title="1" width="4%"><img src="./images/icons/callouts/1.png" alt="1" /></object></td><td style="vertical-align: middle;">\r\nitem\r\n</td></tr>\r\n<tr><td><object data="./images/icons/callouts/2.svg" type="image/svg\+xml" title="2" width="4%"><img src="./images/icons/callouts/2.png" alt="2" /></object></td><td style="vertical-align: middle;">\r\nitem\r\n</td></tr>\r\n</tbody></table></div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
@@ -219,35 +219,35 @@ class Slidy2_conf_Test(unittest.TestCase):
 
 	def test_sect1(self):
 		m = 'sect1 slide'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['sect1'],'slidy2',['numbered'])
+		out = self.asciidoc_output(asciidoc_inputs.d['sect1'],'slidy2',['numbered'])
 		expected = '</div></div>\r\n<script.*/script>\r\n</div><div class="slide">\r\n\r\n<div class="sect1">\r\n<h1 id="_title_level_1">1\. title level 1</h1>\r\n<script.*/script>\r\n<div class="sectionbody">\r\n<div class="paragraph">\r\n<p>content</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_sect2(self):
 		m = 'sect2 slide'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['sect2'],'slidy2',['numbered'])
+		out = self.asciidoc_output(asciidoc_inputs.d['sect2'],'slidy2',['numbered'])
 		expected = '</div></div>\r\n<script.*/script>\r\n</div><div class="slide">\r\n\r\n<div class="sect2">\r\n<h1 id="_title_level_2">0\.1\. title level 2</h1>\r\n<script.*/script>\r\n<div class="sectionbody">\r\n<div class="paragraph">\r\n<p>content</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_sect3(self):
 		m = 'sect3 slide'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['sect3'],'slidy2',['numbered'])
+		out = self.asciidoc_output(asciidoc_inputs.d['sect3'],'slidy2',['numbered'])
 		expected = '</div></div>\r\n<script.*/script>\r\n</div><div class="slide">\r\n\r\n<div class="sect3">\r\n<h1 id="_title_level_3">0\.0\.1\. title level 3</h1>\r\n<script.*/script>\r\n<div class="sectionbody">\r\n<div class="paragraph">\r\n<p>content</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_sect4(self):
 		m = 'sect4 slide'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['sect4'],'slidy2',['numbered'])
+		out = self.asciidoc_output(asciidoc_inputs.d['sect4'],'slidy2',['numbered'])
 		expected = '</div></div>\r\n<script.*/script>\r\n</div><div class="slide">\r\n\r\n<div class="sect4">\r\n<h1 id="_title_level_4">0\.0\.0\.1\. title level 4</h1>\r\n<script.*/script>\r\n<div class="sectionbody">\r\n<div class="paragraph">\r\n<p>content</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
 
 	def test_appendix(self):
 		m = 'appendix slide'
-		out = self.asciidoc_output(datatest.ASCIIDOC_INPUTS['appendix'],'slidy2',['numbered'])
+		out = self.asciidoc_output(asciidoc_inputs.d['appendix'],'slidy2',['numbered'])
 		expected = '</div></div>\r\n<script.*/script>\r\n</div><div class="slide">\r\n\r\n<div class="sect1">\r\n<h1 id="_title">1\. Appendix A: title</h1>\r\n<script.*/script>\r\n<div class="sectionbody">\r\n<div class="paragraph">\r\n<p>content</p>\r\n</div>\r\n'
 		r1 = re.compile(expected)
 		self.assertTrue(r1.search(out), self.assert_message_format % (m,expected,out))
@@ -354,7 +354,7 @@ class Slidy2_conf_Test(unittest.TestCase):
 
 	def test_all_incremental_off(self):
 		m = 'all incremental off'
-		out = self.asciidoc_output(''.join(datatest.ASCIIDOC_INPUTS.values()),'slidy2')
+		out = self.asciidoc_output(''.join(asciidoc_inputs.d.values()),'slidy2')
 		expected = r'incremental'
 		r1 = re.compile(expected)
 		self.assertFalse(r1.search(out), self.assert_message_format % (m,expected,out))

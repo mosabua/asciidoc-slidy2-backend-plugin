@@ -1,5 +1,5 @@
-global ASCIIDOC_INPUTS
-ASCIIDOC_INPUTS = {
+global d
+d = {
 'asciidoc-version': '{asciidoc-version}\r\n',
 'admonitionparagraph': '[NOTE]\r\npara\r\n\r\n',
 'backgroundblock': '&&&&\r\ncontent\r\n&&&&\r\n\r\n',

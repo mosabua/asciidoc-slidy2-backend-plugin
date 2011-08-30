@@ -6,7 +6,6 @@
 :Author Initials: JMI
 :Date:   August, 2011
 :Email:   inglebert@iut-blagnac.fr
-:stylesheet: {docdir}/keycap.css
 :slideshowlocation: Your Computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :duration: 7
@@ -28,10 +27,11 @@ ifdef::backend-slidy2[]
 [width="60%",frame="none",grid="none"]
 |=============================================
 | The 'slidy2' plugin uses a slightly modified version of +slidy.js+ from 'Dave Raggett'.
-| Press the +++<span class="keycap">M</span>+++ key to see keys mapping (see also my link:slidy_js_hack.html[slidy.js hack Page] for added features).
+| Press the +++<span class="keycap">M</span>+++ key to see keys mapping (see also link:#(32)[Extra features added to W3C Slidy (C) slideshows]).
 |=============================================
 ====
 endif::backend-slidy2[]
+NOTE: This backend plugin requires http://www.methods.co.nz/asciidoc[AsciiDoc] 8.6.6 or newer to run.
 
 :incremental:
 ifdef::backend-slidy2[:slidebackground!:]
@@ -123,7 +123,7 @@ next section. You should repeat it to merge more than one section.
 NOTE: any section level (1..4) can be merged in this way.
 
 For exemple, the next three sections will appear
-on the same slide.
+on the same slide in link:./slidy2_doc.slidy.html[this] 'slidy2' output.
 
 ==== level 3 section
 
@@ -389,10 +389,10 @@ and you can return to the default with :
 
 ifdef::backend-slidy2[:slidecalloutwidth!:]
 
-==== How to generate SVG callouts
+==== How SVG callouts were generated
 
-. Execute the following 'python program' in your
-+images/icons/callouts/+ directory.
+The following 'python program' was used in the
++backends/slidy2/images/icons/callouts/+ directory to produce SVG callouts.
 
 .link:svg_callouts.py[svg_callouts.py]
 ----
@@ -534,34 +534,138 @@ For a more complete example consider
 the 'AsciiDoc' userguide 'Slidy' output produced with
 this contrib.
 
-TIP: The 'AsciiDoc' userguide 'Slidy' link:userguide863.slidy.html[output] produced with AsciiDoc 8.6.3 contains 44 slides with many too long contents.
+TIP: The 'AsciiDoc 8.6.5' userguide 'slidy' link:userguide865.slidy.html[output] produced with the AsciiDoc *default* 'slidy' backend  contains 47 slides with many too long contents.
 
 **********************************************************************
-The following +userguide.txt+ *customization* have introduced :
+The following +asciidoc.txt+ *customization* have introduced :
 
-. about 100 'Slidy' conditionnal +pagebreak+ (+<<<+) to split long contents
+. about 100 'slidy2' conditionnal +pagebreak+ (+<<<+) to split long contents
 
-. about 20  'Slidy' conditionnal +nopagebreak+ (+>>>+) to merge shorts sections
+. about 20  'slidy2' conditionnal +nopagebreak+ (+>>>+) to merge shorts sections
 
-. about 10 'Slidy' conditionnal +pagebreak+ to split long lists or tables
+. about 10 'slidy2' conditionnal +pagebreak+ to split long lists or tables
 
 
 *to produce* 
-this link:userguide863_slidy.txt[] customized source file
-and this link:userguide863_slidy.slidy.html[] 'Slidy' output (with 306 slides).
+this link:userguide865_slidy2.txt[] customized source file
+and this link:userguide865_slidy2.slidy.html[] 'Slidy' output (with 311 slides).
 **********************************************************************
 
+== Extra features added to W3C Slidy (C) slideshows
 
-== How to use this backend plugin
+**********************************************************************
+http://www.w3.org/Talks/Tools/Slidy2/[W3C HTML Slidy] (C) from 'Dave Raggett' is an HTML slideshow tool.
+**********************************************************************
+ifdef::backend-slidy2[>>>]
 
-NOTE: This backend plugin requires http://www.methods.co.nz/asciidoc[AsciiDoc] 8.6.6 or later.
+=== Added features
 
+The 'slidy2' backend plugin distribution contains a modified version of
+the W3C Slidy (C) +slidy.js+ file that enable you to :
+
+:incremental:
+
+. toggle incremental display during a slideshow
+. toggle css color-sets during a slideshow
+. display the keys mapping during a slideshow
+
+ifdef::backend-slidy2[:slidebackground: asciidocslidy]
+
+=== Usage
+
+:incremental!:
+
+. Press  
+ifndef::backend-docbook[+++<span class="keycap">I</span>+++]
+ifdef::backend-docbook[+++<keycap>I</keycap>+++]
+to toggle incremental display ON/OFF
+at any point during a slideshow
+
+:incremental:
+
+. Press 
+ifndef::backend-docbook[+++<span class="keycap">L</span>+++]
+ifdef::backend-docbook[+++<keycap>L</keycap>+++]
+to circularly toggle css color-set
+at any point during a slideshow
++
+[NOTE]
+====
+. create your css color set and give it a name containing 'color_set'
+. link or include your color sets as usual :
+.. +<link rel="stylesheet" href="/path/to/your_color_set.css" type="text/css" />+
++
+.. +<style type="text/css" title="your_color_set"> ... </style>+
++
+[TIP]
+====
+With Firefox, you can switch through the 'View' -> 'Page Style'  menu.
+====
+====
+
+. Press 
+ifndef::backend-docbook[+++<span class="keycap">M</span>+++]
+ifdef::backend-docbook[+++<keycap>M</keycap>+++]
+to show the key mapping
+at any point during a slideshow
+
+
+:incremental!:
+
+=== Implementation notes
 
 ifdef::backend-slidy2[>>>]
 
+==== Incremental display toggle
+
+. +w3c_slidy.incremental_display+ added
+. in each incremental display related method, sets +incremental+ to +false+ if +w3c_slidy.incremental_display+ is +false+
+. keyboard 
+ifndef::backend-docbook[+++<span class="keycap">I</span>+++] 
+ifdef::backend-docbook[+++<keycap>I</keycap>+++] 
+key added to toggle +w3c_slidy.incremental_display+ value
+
+==== css color-sets toggle
+
+. +w3c_slidy.color_sets+ array added
+. +w3c_slidy.init_color_sets()+ added
+. +w3c_slidy.toggle_color_set()+ added
+. keyboard 
+ifndef::backend-docbook[+++<span class="keycap">L</span>+++]
+ifdef::backend-docbook[+++<keycap>L</keycap>+++]
+ key added to circularly toggle +w3c_slidy.color_set+ value
+
+Some predefined color sets :
+
+- link:../stylesheets/slidy2_color_set_black.css[]
+- link:../stylesheets/slidy2_color_set_blue.css[]
+- link:../stylesheets/slidy2_color_set_green.css[]
+- link:../stylesheets/slidy2_color_set_none.css[]
+- link:../stylesheets/slidy2_color_set_yellow.css[]
+
+==== key mapping display
+
+. +w3c_slidy.keymap+ added
+. keyboard 
+ifndef::backend-docbook[+++<span class="keycap">M</span>+++]
+ifdef::backend-docbook[+++<keycap>M</keycap>+++]
+ key added to display the key mapping
+
+==== Source diff file
+
+- link:slidy_to_slidy2.diff[]
+
+ifdef::backend-slidy2[:slidebackground!:]
+
+== How to use 'slidy2' backend plugin
+
+NOTE: This backend plugin requires http://www.methods.co.nz/asciidoc[AsciiDoc] 8.6.6 or newer to run.
+
 === Install the 'slidy2' backend plugin
 
-1. Download the latest release : http://csrp.iut-blagnac.fr/~jmi/slidy2/slidy2-1.0.zip[slidy2-1.0.zip]
+This http://www.methods.co.nz/asciidoc[AsciiDoc] backend plugin is hosted at http://code.google.com/p/asciidoc-slidy2-backend-plugin/.
+
+1. Download the latest release zip file : http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list
 
 2. Install the release with one of the following http://www.methods.co.nz/asciidoc[AsciiDoc] +backend+ commands :
 +
@@ -580,8 +684,36 @@ You can produce your 'Slidy' outputs with the following command :
 > asciidoc --backend slidy2 -o doc.slidy.html doc.txt
 ----
 
-You will find some more exemples in the link:slidy2_tests.html[slidy.conf tests] Page.
+[NOTE]
+====
+Add the +data-uri+ attribute to produce a self contained presentation (with css, javascript and images included) :
+----
+> asciidoc -a data-uri --backend slidy2 -o doc.slidy.html doc.txt
+----
+====
 
+== How to generate 'slidy2' documentation
+
+----
+> cd .../backends/slidy2/doc
+> edit make.txt paths accordingly to your platform
+> asciidoc -a nt    --unsafe make.txt        <1>
+> asciidoc -a posix --unsafe make.txt        <2>
+----
+
+<1> on windows (C) platforms
+<2> on Unix like platforms
+
+NOTE: theses commands will produce a +make.html+ trace file.
+
+== How to run 'slidy2' backend plugin tests
+
+You can run test suite on any platform from the +tests+ directory :
+
+----
+> cd .../backends/slidy2/tests
+> python slidy2_UnitTest.py
+----
 
 //////////////////////////////////////////////////////////
 == Hint : Preview the next incremental contents
