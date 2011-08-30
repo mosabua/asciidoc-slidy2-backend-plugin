@@ -1,4 +1,4 @@
-= +slidy2+ backend plugin for Asciidoc
+= 'slidy2' backend plugin for Asciidoc
 :title: slidy2 backend plugin for AsciiDoc
 :description: AsciiDoc slidy2 backend plugin
 :keywords: AsciiDoc asciidoc Backend backend W3C w3c HTML html Slidy slidy slidy2 plugin
@@ -6,12 +6,12 @@
 :Author Initials: JMI
 :Date:   August, 2011
 :Email:   inglebert@iut-blagnac.fr
+:revnumber: 1.0.1
 :slideshowlocation: Your Computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :duration: 7
 :slidebackground: asciidocslidy
 :incremental!:
-// a2x: --xsltproc-opts "--stringparam ulink.show 1 --stringparam ulink.footnotes 1"
 
 
 **********************************************************************
