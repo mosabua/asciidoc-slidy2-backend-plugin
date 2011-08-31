@@ -4,6 +4,7 @@
 
 Add your content here.
 
+link test : http://code.google.com/p/asciidoc-slidy2-backend-plugin/wiki/test.html
 
 = Details =
 
