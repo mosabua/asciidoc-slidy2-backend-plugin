@@ -13,6 +13,8 @@ http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/wiki/test.html
 
 http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/test.html
 
+http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/test.html
+
 http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/trunk/doc/userguide865.slidy.html
 
 http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/trunk/doc/userguide865.slidy.html
