@@ -5,6 +5,9 @@
 Add your content here.
 
 link test : http://code.google.com/p/asciidoc-slidy2-backend-plugin/wiki/test.html
+link test : http://code.google.com/p/asciidoc-slidy2-backend-plugin/wiki/index.html
+link test : http:test.html
+link test : http:index.html
 
 = Details =
 
