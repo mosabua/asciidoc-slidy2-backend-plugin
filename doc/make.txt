@@ -51,7 +51,7 @@ endif::posix[]
 
 :cmdfo: {xsltprocbin} --stringparam ulink.show 0 --stringparam callout.graphics 1 --stringparam navig.graphics 1 --stringparam admon.textlabel 0 --stringparam admon.graphics 1 --stringparam admon.graphics.path ../images/icons/ --stringparam callout.graphics.path ../images/icons/callouts/ --stringparam navig.graphics.path ../images/icons/
 
-:cmdpdf: a2x -v -f pdf -L --fop --icons-dir=../images/icons
+:cmdpdf: a2x -v -f pdf -L --fop --icons-dir=../images/icons -a revnumber={slidy2backendversion}
 
 :cmdditaa: java -jar {ditaajar} -r -o 
 
