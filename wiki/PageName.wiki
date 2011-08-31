@@ -9,6 +9,10 @@ link test : http://code.google.com/p/asciidoc-slidy2-backend-plugin/wiki/index.h
 link test : http:test.html
 link test : http:index.html
 
+http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/wiki/test.html
+
+http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/test.html
+
 http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/trunk/doc/userguide865.slidy.html
 
 http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/trunk/doc/userguide865.slidy.html
