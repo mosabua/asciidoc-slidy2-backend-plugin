@@ -4,7 +4,6 @@
 // edit accordingly to your AsciiDoc/OS settings
 ifdef::nt[]
 :asciidocdir: X:\\path\\to\\asciidoc\\
-:asciidocdir: D:\\JMI\\tools\\tmp3\\asciidoc\\
 :asciidocbin: {asciidocdir}asciidoc.py
 :cp: copy
 :ditaajar: X:\\path\\to\\ditaa\\ditaa0_9.jar
@@ -28,9 +27,9 @@ endif::posix[]
 :iconsdir: ../images/icons
 
 // remove exclamation mark (!) to select output
-:html!:
-:slidy!:
-:pdf:
+:html:
+:slidy:
+:pdf!:
 :ditaa!:
 
 // remove exclamation mark (!) to select audience
