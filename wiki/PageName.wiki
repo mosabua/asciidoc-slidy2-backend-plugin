@@ -13,6 +13,9 @@ http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/trunk/doc/userguid
 
 http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/trunk/doc/userguide865.slidy.html
 
+http://wiki.asciidoc-slidy2-backend-plugin.googlecode.com/svn/doc/userguide865.slidy.html
+
+http://code.google.com/p/asciidoc-slidy2-backend-plugin/svn/doc/userguide865.slidy.html
 
 = Details =
 
