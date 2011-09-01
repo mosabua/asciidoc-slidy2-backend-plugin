@@ -43,6 +43,8 @@ endif::posix[]
 :force:
 
 // global settings
+:volnitsky!:
+:verbose!:
 :slidy2backendversion: 1.0.3
 
 // generic commands defs
@@ -64,15 +66,15 @@ ifdef::local[]
 
 == local outputs
 
-:cmdhtml: {asciidocbin} {stylesdir? -a stylesdir={stylesdir}}{scriptsdir? -a scriptsdir={scriptsdir}} -a numbered -a icons {iconsdir? -a iconsdir={iconsdir}} -a badges -a toc -a revnumber={slidy2backendversion}
+:cmdhtml: {asciidocbin} {verbose? -v} {stylesdir? -a stylesdir={stylesdir}}{scriptsdir? -a scriptsdir={scriptsdir}} -a numbered -a icons {iconsdir? -a iconsdir={iconsdir}} -a badges -a toc -a revnumber={slidy2backendversion} {volnitsky? -a theme=volnitsky}
 
 :cmdhtmldatauri: {cmdhtml} -a data-uri
 
-:cmdslidy: {asciidocbin} --backend slidy2 -a numbered -a icons -a badges  {iconsdir? -a iconsdir=../images/icons} -a stylesheet=doc/keycap.css -a revnumber={slidy2backendversion}
+:cmdslidy: {asciidocbin} {verbose? -v} --backend slidy2 -a icons -a badges  {iconsdir? -a iconsdir=../images/icons} -a stylesheet=doc/keycap.css -a revnumber={slidy2backendversion} {volnitsky? -a theme=volnitsky}
 
 :cmdslidydatauri: {cmdslidy} -a data-uri
 
-:cmdslidylinkcss: {asciidocbin} --backend slidy2 -a stylesdir=copy_of_css_js  -a scriptsdir=copy_of_css_js {iconsdir? -a iconsdir=../images/icons} -a numbered -a icons -a badges -a stylesheet=keycap.css  -a linkcss -a revnumber={slidy2backendversion}
+:cmdslidylinkcss: {asciidocbin} --backend slidy2 -a stylesdir=copy_of_css_js  -a scriptsdir=copy_of_css_js {iconsdir? -a iconsdir=../images/icons} -a numbered -a icons -a badges -a stylesheet=keycap.css  -a linkcss -a revnumber={slidy2backendversion}  {volnitsky? -a theme=volnitsky}
 
 {ditaa}make:{cmdditaa}[osmfmoma1.txt,osmfmoma1.png]
 {ditaa}make:{cmdditaa}[osmfmoma2.txt,osmfmoma2.png]
