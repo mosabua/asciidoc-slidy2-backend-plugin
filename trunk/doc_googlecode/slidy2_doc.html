@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.6" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <meta name="description" content="AsciiDoc slidy2 backend plugin" />
 <meta name="keywords" content="AsciiDoc asciidoc Backend backend W3C w3c HTML html Slidy slidy slidy2 plugin" />
 <title>slidy2 backend plugin for AsciiDoc</title>
@@ -89,9 +89,15 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
+}
+pre {
+  white-space: pre-wrap;
 }
 
 #author {
@@ -181,7 +187,7 @@ div.quoteblock, div.verseblock {
   margin-left: 1.0em;
   margin-right: 10%;
   border-left: 5px solid #f0f0f0;
-  color: #777777;
+  color: #888;
 }
 
 div.quoteblock > div.attribution {
@@ -221,7 +227,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -351,7 +357,7 @@ div.colist td img {
   margin-bottom: 0.1em;
 }
 
-div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -409,17 +415,13 @@ span.underline { text-decoration: underline; }
 span.overline { text-decoration: overline; }
 span.line-through { text-decoration: line-through; }
 
+div.unbreakable { page-break-inside: avoid; }
+
 
 /*
  * xhtml11 specific
  *
  * */
-
-tt {
-  font-family: monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 div.tableblock {
   margin-top: 1.0em;
@@ -453,12 +455,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -539,6 +535,70 @@ body.manpage div.sectionbody {
 @media print {
   body.manpage div#toc { display: none; }
 }
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -583,7 +643,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -612,7 +672,7 @@ toc: function (toclevels) {
   var i;
   for (i = 0; i < toc.childNodes.length; i++) {
     var entry = toc.childNodes[i];
-    if (entry.nodeName == 'div'
+    if (entry.nodeName.toLowerCase() == 'div'
      && entry.getAttribute("class")
      && entry.getAttribute("class").match(/^toclevel/))
       tocEntriesToRemove.push(entry);
@@ -658,7 +718,7 @@ footnotes: function () {
   var entriesToRemove = [];
   for (i = 0; i < noteholder.childNodes.length; i++) {
     var entry = noteholder.childNodes[i];
-    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
       entriesToRemove.push(entry);
   }
   for (i = 0; i < entriesToRemove.length; i++) {
@@ -739,9 +799,9 @@ asciidoc.install(2);
 <div id="header">
 <h1><em>slidy2</em> backend plugin for Asciidoc</h1>
 <span id="author">Jean-Michel Inglebert</span><br />
-<span id="email"><tt>&lt;<a href="mailto:inglebert@iut-blagnac.fr">inglebert@iut-blagnac.fr</a>&gt;</tt></span><br />
-<span id="revnumber">version 1.0.3,</span>
-<span id="revdate">August, 2011</span>
+<span id="email"><code>&lt;<a href="mailto:inglebert@iut-blagnac.fr">inglebert@iut-blagnac.fr</a>&gt;</code></span><br />
+<span id="revnumber">version 1.0.4,</span>
+<span id="revdate">August, 2014</span>
 <div id="toc">
   <div id="toctitle">Table of Contents</div>
   <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
@@ -814,7 +874,8 @@ follow this  reusability template :
 <em>One Source</em> splitted in <em>Many Files</em> to produce <em>Many Output Formats</em> for <em>Many Audiences</em>.</p></div>
 <div class="imageblock">
 <div class="content">
-<img alt="./images/osmfmoma4.png" src="data:image/png;base64,
+<img alt="./images/osmfmoma4.png"
+src="data:image/x-png;base64,
 iVBORw0KGgoAAAANSUhEUgAAA5gAAAEYCAIAAAC2hc4bAABr8ElEQVR42uy9CVhV1cL/3z/gQQxE
 E4nr60CoiSUXzYmMlOuQedUkr97svdZVMsPUTCmzstC6allqgULmCA4BMoMaIOAEaCiDyCAxjwrG
 PAly7+8b6+++52U4HBAOB/h+nvOcZ521p7XXWnvtz95n7bUf+w8hhBBCCCHdkMeYBYQQQgghhCJL
@@ -1475,12 +1536,12 @@ Adds SVG <em>callouts</em>
 </li>
 <li>
 <p>
-Adds a <em>backgound</em> block and a <tt>slidebackground</tt> attribute
+Adds a <em>backgound</em> block and a <code>slidebackground</code> attribute
 </p>
 </li>
 <li>
 <p>
-Adds a <tt>slidefontsizeadjust</tt> attribute
+Adds a <code>slidefontsizeadjust</code> attribute
 </p>
 </li>
 </ol></div>
@@ -1536,7 +1597,7 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">When numbering is not set, the <tt>:slidetitleindentcar:</tt> attribute value
+<td class="content">When numbering is not set, the <code>:slidetitleindentcar:</code> attribute value
 is inserted for each subsection title.</td>
 </tr></table>
 </div>
@@ -1594,11 +1655,11 @@ uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
 qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </td>
 <td class="content">
-<div class="paragraph"><p>The <tt>slidetitleindentcar</tt> character defaults to <em>»</em> and can be redefined
+<div class="paragraph"><p>The <code>slidetitleindentcar</code> character defaults to <em>»</em> and can be redefined
 at any point with the following statement :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> :slidetitleindentcar: *</tt></pre>
+<pre><code> :slidetitleindentcar: *</code></pre>
 </div></div>
 </td>
 </tr></table>
@@ -1611,7 +1672,7 @@ insert the following new <em>nopagebreak</em> block macro (within a conditional 
 to not interfere with your non-slide outputs) :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[&gt;&gt;&gt;]</tt></pre>
+<pre><code> ifdef::backend-slidy2[&gt;&gt;&gt;]</code></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1744,7 +1805,7 @@ insert the usual <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> <em>pa
 to avoid pagebreak in your non-slide outputs) :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[&lt;&lt;&lt;]</tt></pre>
+<pre><code> ifdef::backend-slidy2[&lt;&lt;&lt;]</code></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1799,7 +1860,7 @@ Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
 uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
 qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </td>
-<td class="content">the <tt>pagebreak</tt> template will recall the last <em>section title</em> on each generated subslide
+<td class="content">the <code>pagebreak</code> template will recall the last <em>section title</em> on each generated subslide
 and give it a subslide number.</td>
 </tr></table>
 </div>
@@ -1941,7 +2002,7 @@ incremental display works on theses AsciiDoc constructs.</p></div>
 <div class="paragraph"><p>You can define incremental images blocks as follows :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>images::last[first,second,...]</tt></pre>
+<pre><code>images::last[first,second,...]</code></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -1992,7 +2053,7 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">You can use <tt>data-uri</tt> attribute to embed incremental images.</td>
+<td class="content">You can use <code>data-uri</code> attribute to embed incremental images.</td>
 </tr></table>
 </div>
 <div class="admonitionblock">
@@ -2062,13 +2123,13 @@ vr6+wTfK/4tEfzeeMmUKkydPzhg8jJAAREgEg0H6+vrQNC2pFL8ZUVWVrKws8vPzycnJQVXVjH/s
 in a conditionnal block. For exemple :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[]
+<pre><code> ifdef::backend-slidy2[]
   images::last[first,second,...]
  endif::backend-slidy2[]
 
  ifndef::backend-slidy2[]
   image::last[]
- endif::backend-slidy2[]</tt></pre>
+ endif::backend-slidy2[]</code></pre>
 </div></div>
 </td>
 </tr></table>
@@ -2076,12 +2137,13 @@ in a conditionnal block. For exemple :</p></div>
 <div class="paragraph"><p>The following statement :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>images::./images/osmfmoma4.png[./images/osmfmoma1.png,./images/osmfmoma2.png,./images/osmfmoma3.png]</tt></pre>
+<pre><code>images::./images/osmfmoma4.png[./images/osmfmoma1.png,./images/osmfmoma2.png,./images/osmfmoma3.png]</code></pre>
 </div></div>
 <div class="paragraph"><p>renders incremently in <em>Slidy</em> output :</p></div>
 <div class="imageblock">
 <div class="content">
-<img alt="./images/osmfmoma4.png" src="data:image/png;base64,
+<img alt="./images/osmfmoma4.png"
+src="data:image/x-png;base64,
 iVBORw0KGgoAAAANSUhEUgAAA5gAAAEYCAIAAAC2hc4bAABr8ElEQVR42uy9CVhV1cL/3z/gQQxE
 E4nr60CoiSUXzYmMlOuQedUkr97svdZVMsPUTCmzstC6allqgULmCA4BMoMaIOAEaCiDyCAxjwrG
 PAly7+8b6+++52U4HBAOB/h+nvOcZ521p7XXWnvtz95n7bUf+w8hhBBCCCHdkMeYBYQQQgghhCJL
@@ -2576,11 +2638,13 @@ CCGEPEBQZAkhhBBCCEWWEEIIIYSQteJ//XIPc9X08W8AAAAASUVORK5CYII=" />
 <div class="paragraph"><p>In <em>Slidy</em> output, <em>footnotes</em> are placed at the bottom of the
 slide where they are defined.</p></div>
 <div class="paragraph"><p>A footnote <span class="footnote"><br />[A first example footnote.]<br /></span>,
-a second footnote <span class="footnote"><br />[A second example footnote.]<br /></span>,
+a second footnote <span class="footnote"><br />[A second
+example footnote.]<br /></span>,
 a footnote with a reference ID <span class="footnote" id="_footnote_myId"><br />[myId referenced footnote.]<br /></span>
 and a reference to another footnote <span class="footnoteref"><br /><a href="#_footnote_anotherId">[anotherId]</a><br /></span> (defined in the next slide in slidy output).</p></div>
-<div class="paragraph"><p>In slidy output, this slide illustrates <tt>footnote[]</tt>, <tt>footnoteref[]</tt> and <tt>pagebreak</tt> combination.</p></div>
-<div class="paragraph"><p>Two more footnotes <span class="footnote"><br />[A third example footnote.]<br /></span> <span class="footnote"><br />[A fourth example footnote.]<br /></span>, a footnote with a reference ID <span class="footnote" id="_footnote_anotherId"><br />[anotherId referenced footnote.]<br /></span> and a reference to another footnote <span class="footnoteref"><br /><a href="#_footnote_myId">[myId]</a><br /></span> (defined in the previous slide in slidy output).</p></div>
+<div class="paragraph"><p>In slidy output, this slide illustrates <code>footnote[]</code>, <code>footnoteref[]</code> and <code>pagebreak</code> combination.</p></div>
+<div class="paragraph"><p>Two more footnotes <span class="footnote"><br />[A third example footnote.]<br /></span> <span class="footnote"><br />[A fourth example
+footnote.]<br /></span>, a footnote with a reference ID <span class="footnote" id="_footnote_anotherId"><br />[anotherId referenced footnote.]<br /></span> and a reference to another footnote <span class="footnoteref"><br /><a href="#_footnote_myId">[myId]</a><br /></span> (defined in the previous slide in slidy output).</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
@@ -2636,18 +2700,7 @@ GNQfHLG+TyMTkAVEr88xQfVnkBg7GAKixSIykDYQsL21/wFkW/B5QqT9lwAAAABJRU5ErkJggg==" />
 </td>
 <td class="content">
 <div class="title">Caveats</div>
-<div class="olist arabic"><ol class="arabic">
-<li>
-<p>
-There is no generated link for this <em>Slidy footnotes</em>.
-</p>
-</li>
-<li>
-<p>
-Do not insert <em>newline</em> character inside your AsciiDoc <em>footnote</em> text.
-</p>
-</li>
-</ol></div>
+<div class="paragraph"><p>There is no generated link for this <em>Slidy footnotes</em>.</p></div>
 </td>
 </tr></table>
 </div>
@@ -2655,11 +2708,11 @@ Do not insert <em>newline</em> character inside your AsciiDoc <em>footnote</em> 
 <div class="sect2">
 <h3 id="_svg_callouts">2.7. SVG callouts</h3>
 <div class="paragraph"><p>With SVG, callout icons are bigger and will gracefully scale on window resizing.</p></div>
-<div class="paragraph"><p><tt>callout-inlinemacro</tt> and <tt>listtags-callout</tt> produce an <tt>object</tt> tag which uses SVG or PNG images depending on the browser SVG compatibility.</p></div>
+<div class="paragraph"><p><code>callout-inlinemacro</code> and <code>listtags-callout</code> produce an <code>object</code> tag which uses SVG or PNG images depending on the browser SVG compatibility.</p></div>
 <div class="listingblock">
 <div class="title">Callout produced markup</div>
 <div class="content">
-<pre><tt>&lt;object data="{icon={iconsdir}/callouts/{index}.svg}"          <img alt="1" src="data:image/png;base64,
+<pre><code>&lt;object data="{icon={iconsdir}/callouts/{index}.svg}"          <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
 gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
@@ -2703,7 +2756,7 @@ VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
 gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
-ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" /></tt></pre>
+ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" /></code></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -2712,7 +2765,7 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" /></td><td>
-HTML <tt>object</tt> tag
+HTML <code>object</code> tag
 </td></tr>
 <tr><td><img alt="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
@@ -2743,18 +2796,18 @@ PNG icon used if SVG is not supported
 </td></tr>
 </table></div>
 <div class="sect3">
-<h4 id="_tt_slidecalloutwidth_tt_attribute">2.7.1. <tt>slidecalloutwidth</tt> attribute</h4>
+<h4 id="_code_slidecalloutwidth_code_attribute">2.7.1. <code>slidecalloutwidth</code> attribute</h4>
 <div class="paragraph"><p>At any point you can change <em>callout width</em>
 with the following statement :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[:slidecalloutwidth: 7%]  <img alt="1" src="data:image/png;base64,
+<pre><code> ifdef::backend-slidy2[:slidecalloutwidth: 7%]  <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
 gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
-ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" /></tt></pre>
+ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" /></code></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -2770,49 +2823,48 @@ callout icons scale with window size.
 <div class="paragraph"><p>and you can return to the default with :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[:slidecalloutwidth!:]</tt></pre>
+<pre><code> ifdef::backend-slidy2[:slidecalloutwidth!:]</code></pre>
 </div></div>
 </div>
 <div class="sect3">
 <h4 id="_how_svg_callouts_were_generated">2.7.2. How SVG callouts were generated</h4>
 <div class="paragraph"><p>The following <em>python program</em> was used in the
-<tt>backends/slidy2/images/icons/callouts/</tt> directory to produce SVG callouts.</p></div>
+<code>backends/slidy2/images/icons/callouts/</code> directory to produce SVG callouts.</p></div>
 <div class="listingblock">
-<div class="title"><a href="svg_callouts.py">svg_callouts.py</a></div>
-<div class="content">
-<pre><tt>#!/usr/bin/env python
-# creates SVG callout icons
-# to run under the backends/slidy2/images/icons/callouts/ directory
+<div class="title"><a href="../images/icons/callouts/svg_callouts.py">svg_callouts.py</a></div>
+<div class="content"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># creates SVG callout icons</span>
+<span class="c"># to run under the backends/slidy2/images/icons/callouts/ directory</span>
 
-numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-for nb in numbers:
- file = "%s.svg" % nb
- try:
-  f = open(file, "wt")
-  f.write('&lt;?xml version="1.0" standalone="no"?&gt;\n')
-  f.write('&lt;?xml-stylesheet href="callout.css" type="text/css"?&gt;\n')
-  f.write('&lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1"&gt;\n')
-  f.write('&lt;g&gt;\n')
-  f.write('  &lt;circle cx="50" cy="50" r="50" class="callout" /&gt;\n')
-  f.write('  &lt;text x="50" y="80" text-anchor="middle" font-family="Trebuchet MS" font-weight="bold" font-size="80" fill="white" class="callout"&gt;%d&lt;/text&gt;\n' % nb )
-  f.write('&lt;/g&gt;\n')
-  f.write('&lt;/svg&gt;\n')
-  f.close()
-  print "%s created" % file
- except IOError, (errno, strerror):
-  print "*** ERROR %s : File %s *** %s" % (errno, file, strerror)</tt></pre>
-</div></div>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+ <span class="nb">file</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.svg&quot;</span> <span class="o">%</span> <span class="n">nb</span>
+ <span class="k">try</span><span class="p">:</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">&quot;wt&quot;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;?xml-stylesheet href=&quot;callout.css&quot; type=&quot;text/css&quot;?&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;svg viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;g&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;  &lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;50&quot; class=&quot;callout&quot; /&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;  &lt;text x=&quot;50&quot; y=&quot;80&quot; text-anchor=&quot;middle&quot; font-family=&quot;Trebuchet MS&quot; font-weight=&quot;bold&quot; font-size=&quot;80&quot; fill=&quot;white&quot; class=&quot;callout&quot;&gt;</span><span class="si">%d</span><span class="s">&lt;/text&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">nb</span> <span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;/g&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;/svg&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> created&quot;</span> <span class="o">%</span> <span class="nb">file</span>
+ <span class="k">except</span> <span class="ne">IOError</span><span class="p">,</span> <span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="n">strerror</span><span class="p">):</span>
+  <span class="k">print</span> <span class="s">&quot;*** ERROR </span><span class="si">%s</span><span class="s"> : File </span><span class="si">%s</span><span class="s"> *** </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="n">strerror</span><span class="p">)</span>
+</pre></div></div></div>
 </div>
 <div class="sect3">
 <h4 id="_svg_callouts_style">2.7.3. SVG callouts style</h4>
 <div class="paragraph"><p>Each generated callout svg file
-references the <tt>callout.css</tt> stylesheet.</p></div>
+references the <code>callout.css</code> stylesheet.</p></div>
 <div class="paragraph"><p>You can customize <em>color</em> and <em>font</em> by putting the following definitions
-in the <tt>images/icons/callouts/callout.css</tt> stylesheet.</p></div>
+in the <code>images/icons/callouts/callout.css</code> stylesheet.</p></div>
 <div class="listingblock">
 <div class="title">callout.css</div>
 <div class="content">
-<pre><tt>circle.callout { fill: red; }                    <img alt="1" src="data:image/png;base64,
+<pre><code>circle.callout { fill: red; }                    <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
 gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
@@ -2839,7 +2891,7 @@ Y0K75u9TEUPhuGgWU4mQDvieEaSQEnsT6zKPeZY0EUNtrHMCXvYUuSUg0PsMjUSvpysUT6OOSil9
 izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
 MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
 MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
-AAAASUVORK5CYII=" /></tt></pre>
+AAAASUVORK5CYII=" /></code></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -2868,10 +2920,10 @@ you cannot put this style in your usual css stylesheet
 document source, as follows :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>[optional backgroundName,optional background block CSS style]
+<pre><code>[optional backgroundName,optional background block CSS style]
 &amp;&amp;&amp;&amp;
  AsciiDoc markup
-&amp;&amp;&amp;&amp;</tt></pre>
+&amp;&amp;&amp;&amp;</code></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -2922,7 +2974,7 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">You can use <tt>data-uri</tt> attribute to embed background images.</td>
+<td class="content">You can use <code>data-uri</code> attribute to embed background images.</td>
 </tr></table>
 </div>
 <div class="admonitionblock">
@@ -2985,7 +3037,7 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 background used in the <em>Slidy</em> output of this document :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>[asciidocslidy,opacity: 0.4; position: absolute; left: 60%; top: 40%;]
+<pre><code>[asciidocslidy,opacity: 0.4; position: absolute; left: 60%; top: 40%;]
 &amp;&amp;&amp;&amp;
 [width="100%",cols="7,^3",frame="none",grid="none"]
 |=============================================
@@ -2994,36 +3046,36 @@ background used in the <em>Slidy</em> output of this document :</p></div>
 | | *and*
 | | image:./images/w3c_home.png["W3C"] *Slidy*
 |=============================================
-&amp;&amp;&amp;&amp;</tt></pre>
+&amp;&amp;&amp;&amp;</code></pre>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_tt_slidebackground_tt_attribute">2.9. <tt>slidebackground</tt> attribute</h3>
+<h3 id="_code_slidebackground_code_attribute">2.9. <code>slidebackground</code> attribute</h3>
 <div class="paragraph"><p>At any point you can switch to some background
 with the following statement :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[:slidebackground: asciidocslidy]</tt></pre>
+<pre><code> ifdef::backend-slidy2[:slidebackground: asciidocslidy]</code></pre>
 </div></div>
 <div class="paragraph"><p>and you can disable any background with the following one :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> ifdef::backend-slidy2[:slidebackground!:]</tt></pre>
+<pre><code> ifdef::backend-slidy2[:slidebackground!:]</code></pre>
 </div></div>
 </div>
 <div class="sect2">
-<h3 id="_tt_slidefontsizeadjust_tt_attribute">2.10. <tt>slidefontsizeadjust</tt> attribute</h3>
-<div class="paragraph"><p>If you set the <tt>slidefontsizeadjust</tt> attribute, a <tt>meta</tt> markup
+<h3 id="_code_slidefontsizeadjust_code_attribute">2.10. <code>slidefontsizeadjust</code> attribute</h3>
+<div class="paragraph"><p>If you set the <code>slidefontsizeadjust</code> attribute, a <code>meta</code> markup
 will be inserted in the <em>Slidy</em> output.</p></div>
-<div class="paragraph"><p>As usual, you can set <tt>slidefontsizeadjust</tt> attribute on the <em>command line</em> :</p></div>
+<div class="paragraph"><p>As usual, you can set <code>slidefontsizeadjust</code> attribute on the <em>command line</em> :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> asciidoc ... -a slidefontsizeadjust=-2 ...</tt></pre>
+<pre><code> asciidoc ... -a slidefontsizeadjust=-2 ...</code></pre>
 </div></div>
 <div class="paragraph"><p>or in your <em>source header</em> :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt> :slidefontsizeadjust: -2</tt></pre>
+<pre><code> :slidefontsizeadjust: -2</code></pre>
 </div></div>
 </div>
 </div>
@@ -3049,37 +3101,37 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:copyright:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:copyright:</code></p></td>
 <td align="center" valign="top"><p class="table">Yes</p></td>
 <td align="left" valign="top"><p class="table">Footer content</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:duration:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:duration:</code></p></td>
 <td align="center" valign="top"><p class="table">Yes</p></td>
 <td align="left" valign="top"><p class="table">Estimated number of minutes</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:incremental:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:incremental:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
 <td align="left" valign="top"><p class="table">When set, produces <em>Slidy</em> incremental output</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidetitleindentcar:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidetitleindentcar:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
-<td align="left" valign="top"><p class="table">Inserted before subsection levels , if numbering is off. (default=<tt>»</tt>)</p></td>
+<td align="left" valign="top"><p class="table">Inserted before subsection levels , if numbering is off. (default=<code>»</code>)</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidecalloutwidth:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidecalloutwidth:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
-<td align="left" valign="top"><p class="table">SVG callouts width (default=<tt>4%</tt>)</p></td>
+<td align="left" valign="top"><p class="table">SVG callouts width (default=<code>4%</code>)</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidebackground:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidebackground:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
 <td align="left" valign="top"><p class="table">Switch to the given background</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidefontsizeadjust:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidefontsizeadjust:</code></p></td>
 <td align="center" valign="top"><p class="table">Yes</p></td>
 <td align="left" valign="top"><p class="table">Globaly adjust fontsize (+-N)</p></td>
 </tr>
@@ -3102,15 +3154,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>images::last[first,second,&#8230;]</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>images::last[first,second,&#8230;]</code></p></td>
 <td align="left" valign="top"><p class="table">Produces incremental images markup</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>&gt;&gt;&gt;</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>&gt;&gt;&gt;</code></p></td>
 <td align="left" valign="top"><p class="table">Merges the next section with the current one</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>&lt;&lt;&lt;</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>&lt;&lt;&lt;</code></p></td>
 <td align="left" valign="top"><p class="table">Splits current content</p></td>
 </tr>
 </tbody>
@@ -3132,7 +3184,7 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>&amp;&amp;&amp;&amp;</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>&amp;&amp;&amp;&amp;</code></p></td>
 <td align="left" valign="top"><p class="table">Defines a Slidy background</p></td>
 </tr>
 </tbody>
@@ -3204,21 +3256,21 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="paragraph"><p>The following <tt>asciidoc.txt</tt> <strong>customization</strong> have introduced :</p></div>
+<div class="paragraph"><p>The following <code>asciidoc.txt</code> <strong>customization</strong> have introduced :</p></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
-about 100 <em>slidy2</em> conditionnal <tt>pagebreak</tt> (<tt>&lt;&lt;&lt;</tt>) to split long contents
+about 100 <em>slidy2</em> conditionnal <code>pagebreak</code> (<code>&lt;&lt;&lt;</code>) to split long contents
 </p>
 </li>
 <li>
 <p>
-about 20  <em>slidy2</em> conditionnal <tt>nopagebreak</tt> (<tt>&gt;&gt;&gt;</tt>) to merge shorts sections
+about 20  <em>slidy2</em> conditionnal <code>nopagebreak</code> (<code>&gt;&gt;&gt;</code>) to merge shorts sections
 </p>
 </li>
 <li>
 <p>
-about 10 <em>slidy2</em> conditionnal <tt>pagebreak</tt> to split long lists or tables
+about 10 <em>slidy2</em> conditionnal <code>pagebreak</code> to split long lists or tables
 </p>
 </li>
 </ol></div>
@@ -3238,7 +3290,7 @@ and this <a href="userguide865_slidy2.slidy.html">userguide865_slidy2.slidy.html
 <div class="sect2">
 <h3 id="_added_features_2">5.1. Added features</h3>
 <div class="paragraph"><p>The <em>slidy2</em> backend plugin distribution contains a modified version of
-the W3C Slidy &#169; <tt>slidy.js</tt> file that enable you to :</p></div>
+the W3C Slidy &#169; <code>slidy.js</code> file that enable you to :</p></div>
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
@@ -3340,12 +3392,12 @@ link or include your color sets as usual :
 <div class="olist loweralpha"><ol class="loweralpha">
 <li>
 <p>
-<tt>&lt;link rel="stylesheet" href="/path/to/your_color_set.css" type="text/css" /&gt;</tt>
+<code>&lt;link rel="stylesheet" href="/path/to/your_color_set.css" type="text/css" /&gt;</code>
 </p>
 </li>
 <li>
 <p>
-<tt>&lt;style type="text/css" title="your_color_set"&gt; &#8230; &lt;/style&gt;</tt>
+<code>&lt;style type="text/css" title="your_color_set"&gt; &#8230; &lt;/style&gt;</code>
 </p>
 <div class="admonitionblock">
 <table><tr>
@@ -3430,19 +3482,19 @@ at any point during a slideshow
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
-<tt>w3c_slidy.incremental_display</tt> added
+<code>w3c_slidy.incremental_display</code> added
 </p>
 </li>
 <li>
 <p>
-in each incremental display related method, sets <tt>incremental</tt> to <tt>false</tt> if <tt>w3c_slidy.incremental_display</tt> is <tt>false</tt>
+in each incremental display related method, sets <code>incremental</code> to <code>false</code> if <code>w3c_slidy.incremental_display</code> is <code>false</code>
 </p>
 </li>
 <li>
 <p>
 keyboard
 <span class="keycap">I</span>
-key added to toggle <tt>w3c_slidy.incremental_display</tt> value
+key added to toggle <code>w3c_slidy.incremental_display</code> value
 </p>
 </li>
 </ol></div>
@@ -3452,24 +3504,24 @@ key added to toggle <tt>w3c_slidy.incremental_display</tt> value
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
-<tt>w3c_slidy.color_sets</tt> array added
+<code>w3c_slidy.color_sets</code> array added
 </p>
 </li>
 <li>
 <p>
-<tt>w3c_slidy.init_color_sets()</tt> added
+<code>w3c_slidy.init_color_sets()</code> added
 </p>
 </li>
 <li>
 <p>
-<tt>w3c_slidy.toggle_color_set()</tt> added
+<code>w3c_slidy.toggle_color_set()</code> added
 </p>
 </li>
 <li>
 <p>
 keyboard
 <span class="keycap">L</span>
- key added to circularly toggle <tt>w3c_slidy.color_set</tt> value
+ key added to circularly toggle <code>w3c_slidy.color_set</code> value
 </p>
 </li>
 </ol></div>
@@ -3507,7 +3559,7 @@ keyboard
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
-<tt>w3c_slidy.keymap</tt> added
+<code>w3c_slidy.keymap</code> added
 </p>
 </li>
 <li>
@@ -3593,30 +3645,30 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 <div class="olist arabic"><ol class="arabic">
 <li>
 <p>
-Download the latest release (1.0.3) zip file from <a href="http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list">http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list</a>
+Download the latest release (1.0.4) zip file from <a href="http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list">http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list</a>
 </p>
 </li>
 <li>
 <p>
-Install the release with one of the following <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> <tt>backend</tt> commands :
+Install the release with one of the following <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> <code>backend</code> commands :
 </p>
 <div class="listingblock">
 <div class="content">
-<pre><tt>&gt; asciidoc --backend install slidy2-v1.0.3.zip <img alt="1" src="data:image/png;base64,
+<pre><code>&gt; asciidoc --backend install slidy2-v1.0.4.zip <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
 gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" />
-&gt; asciidoc --backend install slidy2-v1.0.3.zip /etc/asciidoc/backends <img alt="2" src="data:image/png;base64,
+&gt; asciidoc --backend install slidy2-v1.0.4.zip /etc/asciidoc/backends <img alt="2" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
 Y0K75u9TEUPhuGgWU4mQDvieEaSQEnsT6zKPeZY0EUNtrHMCXvYUuSUg0PsMjUSvpysUT6OOSil9
 izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
 MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
 MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
-AAAASUVORK5CYII=" /></tt></pre>
+AAAASUVORK5CYII=" /></code></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -3645,7 +3697,7 @@ will install <em>slidy2</em> backend in the given place
 <div class="paragraph"><p>You can produce your <em>Slidy</em> outputs with the following command :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>&gt; asciidoc --backend slidy2 -o doc.slidy.html doc.txt</tt></pre>
+<pre><code>&gt; asciidoc --backend slidy2 -o doc.slidy.html doc.txt</code></pre>
 </div></div>
 <div class="admonitionblock">
 <table><tr>
@@ -3697,10 +3749,10 @@ zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
 <td class="content">
-<div class="paragraph"><p>Add the <tt>data-uri</tt> attribute to produce a self contained presentation (with css, javascript and images included) :</p></div>
+<div class="paragraph"><p>Add the <code>data-uri</code> attribute to produce a self contained presentation (with css, javascript and images included) :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>&gt; asciidoc -a data-uri --backend slidy2 -o doc.slidy.html doc.txt</tt></pre>
+<pre><code>&gt; asciidoc -a data-uri --backend slidy2 -o doc.slidy.html doc.txt</code></pre>
 </div></div>
 </td>
 </tr></table>
@@ -3713,7 +3765,7 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre><tt>&gt; cd .../backends/slidy2/doc
+<pre><code>&gt; cd .../backends/slidy2/doc
 &gt; edit make.txt paths accordingly to your platform
 &gt; asciidoc -a nt    --unsafe make.txt        <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -3729,7 +3781,7 @@ Y0K75u9TEUPhuGgWU4mQDvieEaSQEnsT6zKPeZY0EUNtrHMCXvYUuSUg0PsMjUSvpysUT6OOSil9
 izp/VNk1YJ8vf6MAAABDdEVYdFNvZnR3YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8w
 MSBjcmlzdHlAbXlzdGljLmVzLmR1cG9udC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUAODBlYWU1
 MjljOTRhN2Y0N2RlY2NmYWRhMjhhY2I5ZGblb7ENAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30A
-AAAASUVORK5CYII=" /></tt></pre>
+AAAASUVORK5CYII=" /></code></pre>
 </div></div>
 <div class="colist arabic"><table>
 <tr><td><img alt="1" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
@@ -3799,7 +3851,7 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">theses commands will produce a <tt>make.html</tt> trace file.</td>
+<td class="content">theses commands will produce a <code>make.html</code> trace file.</td>
 </tr></table>
 </div>
 </div>
@@ -3807,11 +3859,11 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 <div class="sect1">
 <h2 id="_how_to_run_em_slidy2_em_backend_plugin_tests">8. How to run <em>slidy2</em> backend plugin tests</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>You can run test suite on any platform from the <tt>tests</tt> directory :</p></div>
+<div class="paragraph"><p>You can run test suite on any platform from the <code>tests</code> directory :</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>&gt; cd .../backends/slidy2/tests
-&gt; python slidy2_UnitTest.py</tt></pre>
+<pre><code>&gt; cd .../backends/slidy2/tests
+&gt; python slidy2_UnitTest.py</code></pre>
 </div></div>
 </div>
 </div>
@@ -3819,8 +3871,8 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0.3<br />
-Last updated 2011-08-31 15:57:27 Paris, Madrid (heure d’été)
+Version 1.0.4<br />
+Last updated 2014-08-07 14:25:39 Paris, Madrid (heure d’été)
 </div>
 <div id="footer-badges">
 <a href="http://validator.w3.org/check?uri=referer">

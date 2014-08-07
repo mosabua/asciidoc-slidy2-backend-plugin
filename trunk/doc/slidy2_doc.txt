@@ -4,7 +4,7 @@
 :keywords: AsciiDoc asciidoc Backend backend W3C w3c HTML html Slidy slidy slidy2 plugin
 :Author:  Jean-Michel Inglebert
 :Author Initials: JMI
-:Date:   August, 2011
+:Date:   August, 2014
 :Email:   inglebert@iut-blagnac.fr
 :slideshowlocation: Your Computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
@@ -327,7 +327,8 @@ In 'Slidy' output, 'footnotes' are placed at the bottom of the
 slide where they are defined.
 
 A footnote footnote:[A first example footnote.],
-a second footnote footnote:[A second example footnote.],
+a second footnote footnote:[A second 
+example footnote.],
 a footnote with a reference ID footnoteref:[myId,myId referenced footnote.]
 and a reference to another footnote footnoteref:[anotherId] (defined in the next slide in slidy output).
 
@@ -335,13 +336,13 @@ ifdef::backend-slidy2[<<<]
 
 In slidy output, this slide illustrates +footnote[]+, +footnoteref[]+ and +pagebreak+ combination.
 
-Two more footnotes footnote:[A third example footnote.] footnote:[A fourth example footnote.], a footnote with a reference ID footnoteref:[anotherId,anotherId referenced footnote.] and a reference to another footnote footnoteref:[myId] (defined in the previous slide in slidy output).
+Two more footnotes footnote:[A third example footnote.] footnote:[A fourth example 
+footnote.], a footnote with a reference ID footnoteref:[anotherId,anotherId referenced footnote.] and a reference to another footnote footnoteref:[myId] (defined in the previous slide in slidy output).
 
 [CAUTION]
 .Caveats
 ====
-. There is no generated link for this 'Slidy footnotes'.
-. Do not insert 'newline' character inside your AsciiDoc 'footnote' text.
+There is no generated link for this 'Slidy footnotes'.
 ====
 
 === SVG callouts
@@ -393,7 +394,8 @@ ifdef::backend-slidy2[:slidecalloutwidth!:]
 The following 'python program' was used in the
 +backends/slidy2/images/icons/callouts/+ directory to produce SVG callouts.
 
-.link:svg_callouts.py[svg_callouts.py]
+[source,python]
+.link:../images/icons/callouts/svg_callouts.py[svg_callouts.py]
 ----
 include::../images/icons/callouts/svg_callouts.py[]
 ----
@@ -669,8 +671,8 @@ This http://www.methods.co.nz/asciidoc[AsciiDoc] backend plugin is hosted at htt
 2. Install the release with one of the following http://www.methods.co.nz/asciidoc[AsciiDoc] +backend+ commands :
 +
 ----
-> asciidoc --backend install slidy2-v1.0.3.zip <1> 
-> asciidoc --backend install slidy2-v1.0.3.zip /etc/asciidoc/backends <2>
+> asciidoc --backend install slidy2-v1.0.4.zip <1> 
+> asciidoc --backend install slidy2-v1.0.4.zip /etc/asciidoc/backends <2>
 ----
 
 <1> will install 'slidy2' backend in the user homedir

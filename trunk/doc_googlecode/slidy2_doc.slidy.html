@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="copyright" content="August, 2011, Your Computer *** Jean-Michel Inglebert *** Powered by AsciiDoc and W3C Slidy &amp;#169;" />
-<meta name="generator" content="AsciiDoc 8.6.6 / slidy2 backend 1.0.3" />
+<meta name="copyright" content="August, 2014, Your Computer *** Jean-Michel Inglebert *** Powered by AsciiDoc and W3C Slidy &amp;#169;" />
+<meta name="generator" content="AsciiDoc 8.6.9 / slidy2 backend 1.0.4" />
 <meta name="description" content="AsciiDoc slidy2 backend plugin" />
 <meta name="keywords" content="AsciiDoc asciidoc Backend backend W3C w3c HTML html Slidy slidy slidy2 plugin" />
 <meta name="duration" content="7" />
@@ -91,9 +91,15 @@ ul, ol, li > p {
 ul > li     { color: #aaa; }
 ul > li > * { color: black; }
 
-pre {
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
   padding: 0;
   margin: 0;
+}
+pre {
+  white-space: pre-wrap;
 }
 
 #author {
@@ -183,7 +189,7 @@ div.quoteblock, div.verseblock {
   margin-left: 1.0em;
   margin-right: 10%;
   border-left: 5px solid #f0f0f0;
-  color: #777777;
+  color: #888;
 }
 
 div.quoteblock > div.attribution {
@@ -223,7 +229,7 @@ div.exampleblock > div.content {
 }
 
 div.imageblock div.content { padding-left: 0; }
-span.image img { border-style: none; }
+span.image img { border-style: none; vertical-align: text-bottom; }
 a.image:visited { color: white; }
 
 dl {
@@ -353,7 +359,7 @@ div.colist td img {
   margin-bottom: 0.1em;
 }
 
-div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -411,17 +417,13 @@ span.underline { text-decoration: underline; }
 span.overline { text-decoration: overline; }
 span.line-through { text-decoration: line-through; }
 
+div.unbreakable { page-break-inside: avoid; }
+
 
 /*
  * xhtml11 specific
  *
  * */
-
-tt {
-  font-family: monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 div.tableblock {
   margin-top: 1.0em;
@@ -455,12 +457,6 @@ div.tableblock > table[frame="vsides"] {
  * html5 specific
  *
  * */
-
-.monospaced {
-  font-family: monospace;
-  font-size: inherit;
-  color: navy;
-}
 
 table.tableblock {
   margin-top: 1.0em;
@@ -1068,6 +1064,70 @@ div.cover.slide, div.cover.slide h1 { background-color: black; }
 	font-family: sans-serif;
 	font-size: smaller;
 }
+</style>
+<style type="text/css">
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #808080 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0040D0 } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -4018,6 +4078,18 @@ if (!w3c_slidy.incremental_display) {value = "visible";}
 
     if (!w3c_slidy.lang)
       w3c_slidy.lang = "en";
+  },
+  // JMI
+  slidefootnotes: function () {
+    if (slidefootnotes) {
+    var spans = document.getElementsByTagName("span");
+    for (var i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnote") {
+        document.write("<p>"+spans[i].innerHTML+"</p>");
+        spans[i].className = "footnotedone";
+      }
+    }
+    }
   }
 };
 
@@ -4045,13 +4117,13 @@ setTimeout(w3c_slidy.hide_slides, 50);
 <h1><em>slidy2</em> backend plugin for Asciidoc</h1>
 <span id="author">Jean-Michel Inglebert</span><br />
 <span id="email"><tt>&lt;<a href="mailto:inglebert@iut-blagnac.fr">inglebert@iut-blagnac.fr</a>&gt;</tt></span><br />
-<span id="revnumber">version 1.0.3,</span>
-<span id="revdate">August, 2011</span>
+<span id="revnumber">version 1.0.4,</span>
+<span id="revdate">August, 2014</span>
 </div>
 <div class="slide asciidocslidy">
 <div id="preamble">
 <h1 style="visibility: hidden;">Preamble</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Preamble";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Preamble";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
@@ -4127,7 +4199,7 @@ cellspacing="0" cellpadding="4">
 <col width="100%" />
 <tbody>
 <tr>
-<td align="left" valign="top"><p class="table">The <em>slidy2</em> plugin uses a slightly modified version of <tt>slidy.js</tt> from <em>Dave Raggett</em>.</p></td>
+<td align="left" valign="top"><p class="table">The <em>slidy2</em> plugin uses a slightly modified version of <code>slidy.js</code> from <em>Dave Raggett</em>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p class="table">Press the <span class="keycap">M</span> key to see keys mapping (see also <a href="#(32)">Extra features added to W3C Slidy &#169; slideshows</a>).</p></td>
@@ -4191,10 +4263,10 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="paragraph">
@@ -5357,12 +5429,12 @@ EEIIocgSQgghhBCKLCGEEEIIIRRZQgghhBBCKLKEEEIIIYRQZAkhhBBCCEWWEEIIIYSQ+ymyhBBC
 CCGEPEBQZAkhhBBCCEWWEEIIIYSQteJ//XIPc9X08W8AAAAASUVORK5CYII=" />
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_goal">Goal</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Goal";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Goal";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="admonitionblock">
 <table><tr>
@@ -5490,12 +5562,12 @@ to define a new document structure to produce slides.</p>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_added_features">Added features</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Added features";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Added features";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ol class="arabic">
 <li>
@@ -5536,22 +5608,22 @@ Adds SVG <em>callouts</em>
 </li>
 <li>
 <span>
-Adds a <em>backgound</em> block and a <tt>slidebackground</tt> attribute
+Adds a <em>backgound</em> block and a <code>slidebackground</code> attribute
 </span>
 </li>
 <li>
 <span>
-Adds a <tt>slidefontsizeadjust</tt> attribute
+Adds a <code>slidefontsizeadjust</code> attribute
 </span>
 </li>
 </ol>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_a_slide_for_each_em_asciidoc_em_section_level">» A slide for each <em>AsciiDoc</em> section level</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» A slide for each <em>AsciiDoc</em> section level";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» A slide for each <em>AsciiDoc</em> section level";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>With this contrib, a new slide is produced <em>on each</em> AsciiDoc <em>section level</em> (1..4).</p>
@@ -5605,7 +5677,7 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">When numbering is not set, the <tt>:slidetitleindentcar:</tt> attribute value
+<td class="content">When numbering is not set, the <code>:slidetitleindentcar:</code> attribute value
 is inserted for each subsection title.</td>
 </tr></table>
 </div>
@@ -5664,7 +5736,7 @@ qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <tt>slidetitleindentcar</tt> character defaults to <em>»</em> and can be redefined
+<p>The <code>slidetitleindentcar</code> character defaults to <em>»</em> and can be redefined
 at any point with the following statement :</p>
 </div>
 <div class="listingblock">
@@ -5675,12 +5747,12 @@ at any point with the following statement :</p>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_merging_sections_contents">» Merging sections contents</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Merging sections contents";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Merging sections contents";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to merge some sections contents, simply
@@ -5805,43 +5877,43 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 on the same slide in <a href="./slidy2_doc.slidy.html">this</a> <em>slidy2</em> output.</p>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect3">
 <h1 id="_level_3_section">»» level 3 section</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» level 3 section";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» level 3 section";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>some content</p>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 
 <div class="sect3">
 <h1 id="_level_3_section_merged">»» level 3 section merged</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» level 3 section merged";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» level 3 section merged";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>some content</p>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 
 <div class="sect4">
 <h1 id="_level_4_section_merged">»»» level 4 section merged</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect4";nexttitle="»»» level 4 section merged";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect4";nexttitle="»»» level 4 section merged";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>some content</p>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_splitting_too_long_content">» Splitting too long content</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Splitting too long content";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Splitting too long content";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to split some long content, simply
@@ -5905,15 +5977,15 @@ Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
 uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
 qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </td>
-<td class="content">the <tt>pagebreak</tt> template will recall the last <em>section title</em> on each generated subslide
+<td class="content">the <code>pagebreak</code> template will recall the last <em>section title</em> on each generated subslide
 and give it a subslide number.</td>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="admonitionblock">
@@ -6004,12 +6076,12 @@ do not insert conditionnal pagebreak inside <a href="http://www.methods.co.nz/as
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_incremental_display_extended_to">» Incremental display extended to</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Incremental display extended to";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Incremental display extended to";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ul class=" incremental">
 <li>
@@ -6054,10 +6126,10 @@ table
 </li>
 </ul>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="paragraph">
@@ -6078,10 +6150,10 @@ homero verear ea mea, qui.</pre>
 <div class="attribution incremental">
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="listingblock">
@@ -6100,10 +6172,10 @@ consetetur, eu pro everti postulant
 homero verear ea mea, qui.</tt></pre>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="quoteblock">
@@ -6129,10 +6201,10 @@ And eternity in an hour.</pre>
 &#8212; William Blake
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="qlist qanda"><ol>
@@ -6204,10 +6276,10 @@ second callout
 </td></tr>
 </tbody></table></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="tableblock">
@@ -6253,12 +6325,12 @@ hard + 1min really hard taking the HR up to 160).</p></td>
 </table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_incremental_images_block">» Incremental images block</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Incremental images block";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Incremental images block";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
@@ -6269,7 +6341,7 @@ hard + 1min really hard taking the HR up to 160).</p></td>
 <div class="content incremental">
 <pre><tt>images::last[first,second,...]</tt></pre>
 </div></div>
-<div class="admonitionblock">
+<div class="admonitionblock incremental">
 <table><tr>
 <td class="icon">
 <img alt="Note" src="data:image/png;base64,
@@ -6318,9 +6390,7 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">
-<div class="incremental"><p>You can use <tt>data-uri</tt> attribute to embed incremental images.</p></div>
-</td>
+<td class="content">You can use <code>data-uri</code> attribute to embed incremental images.</td>
 </tr></table>
 </div>
 <div class="admonitionblock">
@@ -6406,10 +6476,10 @@ in a conditionnal block. For exemple :</p>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="paragraph">
@@ -7578,40 +7648,48 @@ EEIIocgSQgghhBCKLCGEEEIIIRRZQgghhBBCKLKEEEIIIYRQZAkhhBBCCEWWEEIIIYSQ+ymyhBBC
 CCGEPEBQZAkhhBBCCEWWEEIIIYSQteJ//XIPc9X08W8AAAAASUVORK5CYII=" />
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_footnotes">» Footnotes</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Footnotes";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Footnotes";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In <em>Slidy</em> output, <em>footnotes</em> are placed at the bottom of the
 slide where they are defined.</p>
 </div>
 <div class="paragraph">
-<p>A footnote <script type="text/javascript">/*<![CDATA[*/slidefootnotes += "<div class='footnote'>[1] : A first example footnote.</div>" ;/*]]>*/</script>
+<p>A footnote <span class="footnote" style="display:none;">[1] : A first example footnote.</span>
+<script type="text/javascript">/*<![CDATA[*/slidefootnotes = true ;/*]]>*/</script>
 [1],
-a second footnote <script type="text/javascript">/*<![CDATA[*/slidefootnotes += "<div class='footnote'>[2] : A second example footnote.</div>" ;/*]]>*/</script>
+a second footnote <span class="footnote" style="display:none;">[2] : A second
+example footnote.</span>
+<script type="text/javascript">/*<![CDATA[*/slidefootnotes = true ;/*]]>*/</script>
 [2],
-a footnote with a reference ID <script type="text/javascript">/*<![CDATA[*/slidefootnotes += "<div class='footnote'>[myId] : myId referenced footnote.</div>" ;/*]]>*/</script>
+a footnote with a reference ID <span class="footnote" style="display:none;">[myId] : myId referenced footnote.</span>
+<script type="text/javascript">/*<![CDATA[*/slidefootnotes = true ;/*]]>*/</script>
 [myId]
 and a reference to another footnote [anotherId] (defined in the next slide in slidy output).</p>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="paragraph">
-<p>In slidy output, this slide illustrates <tt>footnote[]</tt>, <tt>footnoteref[]</tt> and <tt>pagebreak</tt> combination.</p>
+<p>In slidy output, this slide illustrates <code>footnote[]</code>, <code>footnoteref[]</code> and <code>pagebreak</code> combination.</p>
 </div>
 <div class="paragraph">
-<p>Two more footnotes <script type="text/javascript">/*<![CDATA[*/slidefootnotes += "<div class='footnote'>[3] : A third example footnote.</div>" ;/*]]>*/</script>
-[3] <script type="text/javascript">/*<![CDATA[*/slidefootnotes += "<div class='footnote'>[4] : A fourth example footnote.</div>" ;/*]]>*/</script>
-[4], a footnote with a reference ID <script type="text/javascript">/*<![CDATA[*/slidefootnotes += "<div class='footnote'>[anotherId] : anotherId referenced footnote.</div>" ;/*]]>*/</script>
+<p>Two more footnotes <span class="footnote" style="display:none;">[3] : A third example footnote.</span>
+<script type="text/javascript">/*<![CDATA[*/slidefootnotes = true ;/*]]>*/</script>
+[3] <span class="footnote" style="display:none;">[4] : A fourth example
+footnote.</span>
+<script type="text/javascript">/*<![CDATA[*/slidefootnotes = true ;/*]]>*/</script>
+[4], a footnote with a reference ID <span class="footnote" style="display:none;">[anotherId] : anotherId referenced footnote.</span>
+<script type="text/javascript">/*<![CDATA[*/slidefootnotes = true ;/*]]>*/</script>
 [anotherId] and a reference to another footnote [myId] (defined in the previous slide in slidy output).</p>
 </div>
 <div class="admonitionblock">
@@ -7669,34 +7747,25 @@ GNQfHLG+TyMTkAVEr88xQfVnkBg7GAKixSIykDYQsL21/wFkW/B5QqT9lwAAAABJRU5ErkJggg==" />
 </td>
 <td class="content">
 <div class="title">Caveats</div>
-<ol class="arabic">
-<li>
-<span>
-There is no generated link for this <em>Slidy footnotes</em>.
-</span>
-</li>
-<li>
-<span>
-Do not insert <em>newline</em> character inside your AsciiDoc <em>footnote</em> text.
-</span>
-</li>
-</ol>
+<div class="paragraph">
+<p>There is no generated link for this <em>Slidy footnotes</em>.</p>
+</div>
 </td>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_svg_callouts">» SVG callouts</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» SVG callouts";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» SVG callouts";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>With SVG, callout icons are bigger and will gracefully scale on window resizing.</p>
 </div>
 <div class="paragraph">
-<p><tt>callout-inlinemacro</tt> and <tt>listtags-callout</tt> produce an <tt>object</tt> tag which uses SVG or PNG images depending on the browser SVG compatibility.</p>
+<p><code>callout-inlinemacro</code> and <code>listtags-callout</code> produce an <code>object</code> tag which uses SVG or PNG images depending on the browser SVG compatibility.</p>
 </div>
 <div class="listingblock">
 <div class="title">Callout produced markup</div>
@@ -7766,7 +7835,7 @@ gE0tIWQ+sBcwKM8qoD/wB5wGL8hjfdzWrh01GRp1hInGjDoXwHgsFuzBVLQAAABDdEVYdFNvZnR3
 YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" /></object></td><td style="vertical-align: middle;">
-HTML <tt>object</tt> tag
+HTML <code>object</code> tag
 </td></tr>
 <tr><td><object data="../images/icons/callouts/2.svg" type="image/svg+xml" title="2" width="4%"><img alt="2" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
@@ -7797,12 +7866,12 @@ PNG icon used if SVG is not supported
 </td></tr>
 </tbody></table></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect3">
-<h1 id="_tt_slidecalloutwidth_tt_attribute">»» <tt>slidecalloutwidth</tt> attribute</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» <tt>slidecalloutwidth</tt> attribute";slidefootnotes="";/*]]>*/</script>
+<h1 id="_code_slidecalloutwidth_code_attribute">»» <code>slidecalloutwidth</code> attribute</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» <code>slidecalloutwidth</code> attribute";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
@@ -7843,62 +7912,61 @@ callout icons scale with window size.
 <pre><tt> ifdef::backend-slidy2[:slidecalloutwidth!:]</tt></pre>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect3">
 <h1 id="_how_svg_callouts_were_generated">»» How SVG callouts were generated</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» How SVG callouts were generated";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» How SVG callouts were generated";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
 <p>The following <em>python program</em> was used in the
-<tt>backends/slidy2/images/icons/callouts/</tt> directory to produce SVG callouts.</p>
+<code>backends/slidy2/images/icons/callouts/</code> directory to produce SVG callouts.</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title"><a href="svg_callouts.py">svg_callouts.py</a></div>
-<div class="content incremental">
-<pre><tt>#!/usr/bin/env python
-# creates SVG callout icons
-# to run under the backends/slidy2/images/icons/callouts/ directory
+<div class="title"><a href="../images/icons/callouts/svg_callouts.py">svg_callouts.py</a></div>
+<div class="content"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># creates SVG callout icons</span>
+<span class="c"># to run under the backends/slidy2/images/icons/callouts/ directory</span>
 
-numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-for nb in numbers:
- file = "%s.svg" % nb
- try:
-  f = open(file, "wt")
-  f.write('&lt;?xml version="1.0" standalone="no"?&gt;\n')
-  f.write('&lt;?xml-stylesheet href="callout.css" type="text/css"?&gt;\n')
-  f.write('&lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1"&gt;\n')
-  f.write('&lt;g&gt;\n')
-  f.write('  &lt;circle cx="50" cy="50" r="50" class="callout" /&gt;\n')
-  f.write('  &lt;text x="50" y="80" text-anchor="middle" font-family="Trebuchet MS" font-weight="bold" font-size="80" fill="white" class="callout"&gt;%d&lt;/text&gt;\n' % nb )
-  f.write('&lt;/g&gt;\n')
-  f.write('&lt;/svg&gt;\n')
-  f.close()
-  print "%s created" % file
- except IOError, (errno, strerror):
-  print "*** ERROR %s : File %s *** %s" % (errno, file, strerror)</tt></pre>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">nb</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+ <span class="nb">file</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">.svg&quot;</span> <span class="o">%</span> <span class="n">nb</span>
+ <span class="k">try</span><span class="p">:</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">&quot;wt&quot;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;?xml-stylesheet href=&quot;callout.css&quot; type=&quot;text/css&quot;?&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;svg viewBox=&quot;0 0 100 100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;g&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;  &lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;50&quot; class=&quot;callout&quot; /&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;  &lt;text x=&quot;50&quot; y=&quot;80&quot; text-anchor=&quot;middle&quot; font-family=&quot;Trebuchet MS&quot; font-weight=&quot;bold&quot; font-size=&quot;80&quot; fill=&quot;white&quot; class=&quot;callout&quot;&gt;</span><span class="si">%d</span><span class="s">&lt;/text&gt;</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">nb</span> <span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;/g&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;&lt;/svg&gt;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> created&quot;</span> <span class="o">%</span> <span class="nb">file</span>
+ <span class="k">except</span> <span class="ne">IOError</span><span class="p">,</span> <span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="n">strerror</span><span class="p">):</span>
+  <span class="k">print</span> <span class="s">&quot;*** ERROR </span><span class="si">%s</span><span class="s"> : File </span><span class="si">%s</span><span class="s"> *** </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">errno</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="n">strerror</span><span class="p">)</span>
+</pre></div></div></div>
 </div></div>
-</div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect3">
 <h1 id="_svg_callouts_style">»» SVG callouts style</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» SVG callouts style";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» SVG callouts style";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
 <p>Each generated callout svg file
-references the <tt>callout.css</tt> stylesheet.</p>
+references the <code>callout.css</code> stylesheet.</p>
 </div>
 </div>
 <div class="paragraph">
 <div class="incremental">
 <p>You can customize <em>color</em> and <em>font</em> by putting the following definitions
-in the <tt>images/icons/callouts/callout.css</tt> stylesheet.</p>
+in the <code>images/icons/callouts/callout.css</code> stylesheet.</p>
 </div>
 </div>
 <div class="listingblock">
@@ -7961,12 +8029,12 @@ you cannot put this style in your usual css stylesheet
 </td></tr>
 </tbody></table></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_slidy_background_block">» Slidy background block</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Slidy background block";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Slidy background block";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
@@ -7981,7 +8049,7 @@ document source, as follows :</p>
  AsciiDoc markup
 &amp;&amp;&amp;&amp;</tt></pre>
 </div></div>
-<div class="admonitionblock">
+<div class="admonitionblock incremental">
 <table><tr>
 <td class="icon">
 <img alt="Note" src="data:image/png;base64,
@@ -8030,12 +8098,10 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">
-<div class="incremental"><p>You can use <tt>data-uri</tt> attribute to embed background images.</p></div>
-</td>
+<td class="content">You can use <code>data-uri</code> attribute to embed background images.</td>
 </tr></table>
 </div>
-<div class="admonitionblock">
+<div class="admonitionblock incremental">
 <table><tr>
 <td class="icon">
 <img alt="Tip" src="data:image/png;base64,
@@ -8088,16 +8154,14 @@ Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
 uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
 qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </td>
-<td class="content">
-<div class="incremental"><p>Do not give a name to define the default background</p></div>
-</td>
+<td class="content">Do not give a name to define the default background</td>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="paragraph">
@@ -8135,7 +8199,8 @@ cellspacing="0" cellpadding="4">
 <tr>
 <td align="left" valign="top"><p class="table"></p></td>
 <td align="center" valign="top"><p class="table"><span class="image">
-<img alt="AsciiDoc" src="data:image/png;base64,
+<img alt="AsciiDoc"
+src="data:image/x-png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAPgAAAA4CAYAAADQOTW/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABEgSURB
 VHic7ZxZcFvXecf/FxfAxb4SxCLuG0hJlKiVpCTvVqyO7Hhppm4z9rSdpmln2mmbppOXvrR96kzT
@@ -8225,7 +8290,8 @@ AAAAAElFTkSuQmCC" />
 <tr>
 <td align="left" valign="top"><p class="table"></p></td>
 <td align="center" valign="top"><p class="table"><span class="image">
-<img alt="W3C" src="data:image/png;base64,
+<img alt="W3C"
+src="data:image/x-png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAEgAAAAwCAMAAACFQszZAAADAFBMVEUAAAABAQECAgIFBQUGBgYI
 CAgMDAwODg4SEhIUFBQVFRUYGBgaGhodHR0fHx8gICAmJiYoKCgsLCwxMTE1NTU2NjY3Nzc4ODg7
 Ozs/Pz9ERERFRUVGRkZJSUlOTk5PT09WVlZdXV1eXl5gYGBhYWFkZGRnZ2dsbGxtbW1vb29wcHBx
@@ -8267,12 +8333,12 @@ InzlHQ2qwB9ST13gVame+h/90+//AjLbsimAZh6af7NOOAhIdkqdYiybxQAAAABJRU5ErkJggg==" />
 </div>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
-<h1 id="_tt_slidebackground_tt_attribute">» <tt>slidebackground</tt> attribute</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» <tt>slidebackground</tt> attribute";slidefootnotes="";/*]]>*/</script>
+<h1 id="_code_slidebackground_code_attribute">» <code>slidebackground</code> attribute</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» <code>slidebackground</code> attribute";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
@@ -8294,22 +8360,22 @@ with the following statement :</p>
 <pre><tt> ifdef::backend-slidy2[:slidebackground!:]</tt></pre>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
-<h1 id="_tt_slidefontsizeadjust_tt_attribute">» <tt>slidefontsizeadjust</tt> attribute</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» <tt>slidefontsizeadjust</tt> attribute";slidefootnotes="";/*]]>*/</script>
+<h1 id="_code_slidefontsizeadjust_code_attribute">» <code>slidefontsizeadjust</code> attribute</h1>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» <code>slidefontsizeadjust</code> attribute";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
-<p>If you set the <tt>slidefontsizeadjust</tt> attribute, a <tt>meta</tt> markup
+<p>If you set the <code>slidefontsizeadjust</code> attribute, a <code>meta</code> markup
 will be inserted in the <em>Slidy</em> output.</p>
 </div>
 </div>
 <div class="paragraph">
 <div class="incremental">
-<p>As usual, you can set <tt>slidefontsizeadjust</tt> attribute on the <em>command line</em> :</p>
+<p>As usual, you can set <code>slidefontsizeadjust</code> attribute on the <em>command line</em> :</p>
 </div>
 </div>
 <div class="listingblock">
@@ -8326,12 +8392,12 @@ will be inserted in the <em>Slidy</em> output.</p>
 <pre><tt> :slidefontsizeadjust: -2</tt></pre>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_em_slidy2_em_backend_quickref"><em>slidy2</em> backend quickref</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="<em>slidy2</em> backend quickref";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="<em>slidy2</em> backend quickref";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="tableblock">
 <table rules="all"
@@ -8351,37 +8417,37 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody class="incremental">
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:copyright:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:copyright:</code></p></td>
 <td align="center" valign="top"><p class="table">Yes</p></td>
 <td align="left" valign="top"><p class="table">Footer content</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:duration:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:duration:</code></p></td>
 <td align="center" valign="top"><p class="table">Yes</p></td>
 <td align="left" valign="top"><p class="table">Estimated number of minutes</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:incremental:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:incremental:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
 <td align="left" valign="top"><p class="table">When set, produces <em>Slidy</em> incremental output</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidetitleindentcar:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidetitleindentcar:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
-<td align="left" valign="top"><p class="table">Inserted before subsection levels , if numbering is off. (default=<tt>»</tt>)</p></td>
+<td align="left" valign="top"><p class="table">Inserted before subsection levels , if numbering is off. (default=<code>»</code>)</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidecalloutwidth:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidecalloutwidth:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
-<td align="left" valign="top"><p class="table">SVG callouts width (default=<tt>4%</tt>)</p></td>
+<td align="left" valign="top"><p class="table">SVG callouts width (default=<code>4%</code>)</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidebackground:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidebackground:</code></p></td>
 <td align="center" valign="top"><p class="table"></p></td>
 <td align="left" valign="top"><p class="table">Switch to the given background</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>:slidefontsizeadjust:</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>:slidefontsizeadjust:</code></p></td>
 <td align="center" valign="top"><p class="table">Yes</p></td>
 <td align="left" valign="top"><p class="table">Globaly adjust fontsize (+-N)</p></td>
 </tr>
@@ -8389,10 +8455,10 @@ cellspacing="0" cellpadding="4">
 </table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 <div class="sect1">
-<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide +=1;document.write("<h1 class='"+nextclass+"'>"+nexttitle+" ("+ subslide+")</h1>");slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 
 <div class="tableblock">
@@ -8411,15 +8477,15 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody class="incremental">
 <tr>
-<td align="left" valign="top"><p class="table"><tt>images::last[first,second,&#8230;]</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>images::last[first,second,&#8230;]</code></p></td>
 <td align="left" valign="top"><p class="table">Produces incremental images markup</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>&gt;&gt;&gt;</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>&gt;&gt;&gt;</code></p></td>
 <td align="left" valign="top"><p class="table">Merges the next section with the current one</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p class="table"><tt>&lt;&lt;&lt;</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>&lt;&lt;&lt;</code></p></td>
 <td align="left" valign="top"><p class="table">Splits current content</p></td>
 </tr>
 </tbody>
@@ -8441,19 +8507,19 @@ cellspacing="0" cellpadding="4">
 </thead>
 <tbody class="incremental">
 <tr>
-<td align="left" valign="top"><p class="table"><tt>&amp;&amp;&amp;&amp;</tt></p></td>
+<td align="left" valign="top"><p class="table"><code>&amp;&amp;&amp;&amp;</code></p></td>
 <td align="left" valign="top"><p class="table">Defines a Slidy background</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="XUG"><em>AsciiDoc</em> userguide <em>Slidy</em> output</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="<em>AsciiDoc</em> userguide <em>Slidy</em> output";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="<em>AsciiDoc</em> userguide <em>Slidy</em> output";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
@@ -8462,7 +8528,7 @@ the <em>AsciiDoc</em> userguide <em>Slidy</em> output produced with
 this contrib.</p>
 </div>
 </div>
-<div class="admonitionblock">
+<div class="admonitionblock incremental">
 <table><tr>
 <td class="icon">
 <img alt="Tip" src="data:image/png;base64,
@@ -8515,32 +8581,30 @@ Pvx+P8FgkGAw+OWfD7gj94RG13U0TSOdTpNOp8lMbmQ0TcvbArrrK1mW8Xg8eL3e7BLB5/N9dSc0
 uSP3jMwwjKy4G3AXwB0ugAsx5YzMndW//DOy3OFMjGwrxrKs7NX9LBfAneFFUcxec6rU5zqpvCqA
 qTCT16/0nPgLA/i6xjf+Xw3+B2ll/uiqTaJTAAAAAElFTkSuQmCC" />
 </td>
-<td class="content">
-<div class="incremental"><p>The <em>AsciiDoc 8.6.5</em> userguide <em>slidy</em> <a href="userguide865.slidy.html">output</a> produced with the AsciiDoc <strong>default</strong> <em>slidy</em> backend  contains 47 slides with many too long contents.</p></div>
-</td>
+<td class="content">The <em>AsciiDoc 8.6.5</em> userguide <em>slidy</em> <a href="userguide865.slidy.html">output</a> produced with the AsciiDoc <strong>default</strong> <em>slidy</em> backend  contains 47 slides with many too long contents.</td>
 </tr></table>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <div class="incremental">
-<p>The following <tt>asciidoc.txt</tt> <strong>customization</strong> have introduced :</p>
+<p>The following <code>asciidoc.txt</code> <strong>customization</strong> have introduced :</p>
 </div>
 </div>
 <ol class="arabic incremental">
 <li>
 <span>
-about 100 <em>slidy2</em> conditionnal <tt>pagebreak</tt> (<tt>&lt;&lt;&lt;</tt>) to split long contents
+about 100 <em>slidy2</em> conditionnal <code>pagebreak</code> (<code>&lt;&lt;&lt;</code>) to split long contents
 </span>
 </li>
 <li>
 <span>
-about 20  <em>slidy2</em> conditionnal <tt>nopagebreak</tt> (<tt>&gt;&gt;&gt;</tt>) to merge shorts sections
+about 20  <em>slidy2</em> conditionnal <code>nopagebreak</code> (<code>&gt;&gt;&gt;</code>) to merge shorts sections
 </span>
 </li>
 <li>
 <span>
-about 10 <em>slidy2</em> conditionnal <tt>pagebreak</tt> to split long lists or tables
+about 10 <em>slidy2</em> conditionnal <code>pagebreak</code> to split long lists or tables
 </span>
 </li>
 </ol>
@@ -8553,12 +8617,12 @@ and this <a href="userguide865_slidy2.slidy.html">userguide865_slidy2.slidy.html
 </div>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_extra_features_added_to_w3c_slidy_169_slideshows">Extra features added to W3C Slidy &#169; slideshows</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Extra features added to W3C Slidy &#169; slideshows";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Extra features added to W3C Slidy &#169; slideshows";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="sidebarblock">
 <div class="content">
@@ -8569,16 +8633,16 @@ and this <a href="userguide865_slidy2.slidy.html">userguide865_slidy2.slidy.html
 </div>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 
 <div class="sect2">
 <h1 id="_added_features_2">» Added features</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Added features";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Added features";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <div class="incremental">
 <p>The <em>slidy2</em> backend plugin distribution contains a modified version of
-the W3C Slidy &#169; <tt>slidy.js</tt> file that enable you to :</p>
+the W3C Slidy &#169; <code>slidy.js</code> file that enable you to :</p>
 </div>
 </div>
 <ol class="arabic incremental">
@@ -8599,12 +8663,12 @@ display the keys mapping during a slideshow
 </li>
 </ol>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide asciidocslidy">
 
 <div class="sect2">
 <h1 id="_usage">» Usage</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Usage";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Usage";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ol class="arabic">
 <li>
@@ -8687,12 +8751,12 @@ link or include your color sets as usual :
 <ol class="loweralpha incremental">
 <li>
 <span>
-<tt>&lt;link rel="stylesheet" href="/path/to/your_color_set.css" type="text/css" /&gt;</tt>
+<code>&lt;link rel="stylesheet" href="/path/to/your_color_set.css" type="text/css" /&gt;</code>
 </span>
 </li>
 <li>
 <span>
-<tt>&lt;style type="text/css" title="your_color_set"&gt; &#8230; &lt;/style&gt;</tt>
+<code>&lt;style type="text/css" title="your_color_set"&gt; &#8230; &lt;/style&gt;</code>
 </span>
 <div class="admonitionblock">
 <table><tr>
@@ -8774,68 +8838,68 @@ at any point during a slideshow
 </li>
 </ol>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide asciidocslidy">
 
 <div class="sect2">
 <h1 id="_implementation_notes">» Implementation notes</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Implementation notes";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Implementation notes";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 
 <div class="sect3">
 <h1 id="_incremental_display_toggle">»» Incremental display toggle</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» Incremental display toggle";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» Incremental display toggle";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ol class="arabic">
 <li>
 <span>
-<tt>w3c_slidy.incremental_display</tt> added
+<code>w3c_slidy.incremental_display</code> added
 </span>
 </li>
 <li>
 <span>
-in each incremental display related method, sets <tt>incremental</tt> to <tt>false</tt> if <tt>w3c_slidy.incremental_display</tt> is <tt>false</tt>
+in each incremental display related method, sets <code>incremental</code> to <code>false</code> if <code>w3c_slidy.incremental_display</code> is <code>false</code>
 </span>
 </li>
 <li>
 <span>
 keyboard
 <span class="keycap">I</span>
-key added to toggle <tt>w3c_slidy.incremental_display</tt> value
+key added to toggle <code>w3c_slidy.incremental_display</code> value
 </span>
 </li>
 </ol>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide asciidocslidy">
 
 <div class="sect3">
 <h1 id="_css_color_sets_toggle">»» css color-sets toggle</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» css color-sets toggle";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» css color-sets toggle";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ol class="arabic">
 <li>
 <span>
-<tt>w3c_slidy.color_sets</tt> array added
+<code>w3c_slidy.color_sets</code> array added
 </span>
 </li>
 <li>
 <span>
-<tt>w3c_slidy.init_color_sets()</tt> added
+<code>w3c_slidy.init_color_sets()</code> added
 </span>
 </li>
 <li>
 <span>
-<tt>w3c_slidy.toggle_color_set()</tt> added
+<code>w3c_slidy.toggle_color_set()</code> added
 </span>
 </li>
 <li>
 <span>
 keyboard
 <span class="keycap">L</span>
- key added to circularly toggle <tt>w3c_slidy.color_set</tt> value
+ key added to circularly toggle <code>w3c_slidy.color_set</code> value
 </span>
 </li>
 </ol>
@@ -8870,17 +8934,17 @@ keyboard
 </li>
 </ul>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide asciidocslidy">
 
 <div class="sect3">
 <h1 id="_key_mapping_display">»» key mapping display</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» key mapping display";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» key mapping display";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ol class="arabic">
 <li>
 <span>
-<tt>w3c_slidy.keymap</tt> added
+<code>w3c_slidy.keymap</code> added
 </span>
 </li>
 <li>
@@ -8892,12 +8956,12 @@ keyboard
 </li>
 </ol>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide asciidocslidy">
 
 <div class="sect3">
 <h1 id="_source_diff_file">»» Source diff file</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» Source diff file";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect3";nexttitle="»» Source diff file";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <ul class="">
 <li>
@@ -8907,12 +8971,12 @@ keyboard
 </li>
 </ul>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_how_to_use_em_slidy2_em_backend_plugin">How to use <em>slidy2</em> backend plugin</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How to use <em>slidy2</em> backend plugin";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How to use <em>slidy2</em> backend plugin";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="admonitionblock">
 <table><tr>
@@ -8967,12 +9031,12 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_install_the_em_slidy2_em_backend_plugin">» Install the <em>slidy2</em> backend plugin</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Install the <em>slidy2</em> backend plugin";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Install the <em>slidy2</em> backend plugin";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> backend plugin is hosted at <a href="http://code.google.com/p/asciidoc-slidy2-backend-plugin/">http://code.google.com/p/asciidoc-slidy2-backend-plugin/</a>.</p>
@@ -8980,16 +9044,16 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 <ol class="arabic">
 <li>
 <span>
-Download the latest release (1.0.3) zip file from <a href="http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list">http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list</a>
+Download the latest release (1.0.4) zip file from <a href="http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list">http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list</a>
 </span>
 </li>
 <li>
 <span>
-Install the release with one of the following <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> <tt>backend</tt> commands :
+Install the release with one of the following <a href="http://www.methods.co.nz/asciidoc">AsciiDoc</a> <code>backend</code> commands :
 </span>
 <div class="listingblock">
 <div class="content">
-<pre><tt>&gt; asciidoc --backend install slidy2-v1.0.3.zip <object data="../images/icons/callouts/1.svg" type="image/svg+xml" title="1" width="4%">
+<pre><tt>&gt; asciidoc --backend install slidy2-v1.0.4.zip <object data="../images/icons/callouts/1.svg" type="image/svg+xml" title="1" width="4%">
 <img alt="1" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAABjSURBVHja
 VY6xDcAwCAS/pPQaLim9QmajdOk2I2SNrMEIlARIoigU8Cek/4e7zdHaWOYOVwaoA6wOCw05Y7FB
@@ -8998,7 +9062,7 @@ YXJlAEAoIylJbWFnZU1hZ2ljayA0LjIuOCA5OS8wOC8wMSBjcmlzdHlAbXlzdGljLmVzLmR1cG9u
 dC5jb22RuiG4AAAAKnRFWHRTaWduYXR1cmUANThhMDcyZTA3MGRhMjJmNjEzNWNiZDNlNDE0NTQ2
 ZjloaiHtAAAADnRFWHRQYWdlADEyeDEyKzArMIRtu30AAAAASUVORK5CYII=" />
 </object>
-&gt; asciidoc --backend install slidy2-v1.0.3.zip /etc/asciidoc/backends <object data="../images/icons/callouts/2.svg" type="image/svg+xml" title="2" width="4%">
+&gt; asciidoc --backend install slidy2-v1.0.4.zip /etc/asciidoc/backends <object data="../images/icons/callouts/2.svg" type="image/svg+xml" title="2" width="4%">
 <img alt="2" src="data:image/png;base64,
 iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAAAAABzHgM7AAAAAmJLR0QAAKqNIzIAAAB7SURBVHja
 HY6hFcMwDEQ/NDQsNSwU9Apdo7Cw0CsIBoZmhKzQEQJLDQsFVclHpHu693W429Zr7bu541Pg3kCm
@@ -9031,12 +9095,12 @@ will install <em>slidy2</em> backend in the given place
 </li>
 </ol>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect2">
 <h1 id="_use_the_em_slidy2_em_backend_plugin">» Use the <em>slidy2</em> backend plugin</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Use the <em>slidy2</em> backend plugin";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect2";nexttitle="» Use the <em>slidy2</em> backend plugin";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can produce your <em>Slidy</em> outputs with the following command :</p>
@@ -9096,7 +9160,7 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Add the <tt>data-uri</tt> attribute to produce a self contained presentation (with css, javascript and images included) :</p>
+<p>Add the <code>data-uri</code> attribute to produce a self contained presentation (with css, javascript and images included) :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9106,12 +9170,12 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_how_to_generate_em_slidy2_em_documentation">How to generate <em>slidy2</em> documentation</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How to generate <em>slidy2</em> documentation";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How to generate <em>slidy2</em> documentation";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -9205,19 +9269,19 @@ lmUMDQ1RKpXOm9EXvV6v1+tWr9eZnp5mZmaGWq1GjLHF62aiNZ+bnPfe45xrvTZzxMyYmZk56+LX
 zKjX661DvHOOJElIkoRSqYT3/vLvRlW15eHCa4VxzdvmpjZDfubzuXeb3vuzqCEixBhbo0NTkyS5
 PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 </td>
-<td class="content">theses commands will produce a <tt>make.html</tt> trace file.</td>
+<td class="content">theses commands will produce a <code>make.html</code> trace file.</td>
 </tr></table>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide">
 
 <div class="sect1">
 <h1 id="_how_to_run_em_slidy2_em_backend_plugin_tests">How to run <em>slidy2</em> backend plugin tests</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How to run <em>slidy2</em> backend plugin tests";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="How to run <em>slidy2</em> backend plugin tests";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can run test suite on any platform from the <tt>tests</tt> directory :</p>
+<p>You can run test suite on any platform from the <code>tests</code> directory :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9225,20 +9289,20 @@ PAr9L8j/96+U/w3yCoCXW14B8HLLvwDd67nwZIEPdgAAAABJRU5ErkJggg==" />
 &gt; python slidy2_UnitTest.py</tt></pre>
 </div></div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div><div class="slide asciidocslidy">
 
 <div class="sect1">
 <h1 id="_thanks_for_your_attention">Thanks for your attention</h1>
-<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Thanks for your attention";slidefootnotes="";/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/subslide=1;nextclass="sect1";nexttitle="Thanks for your attention";slidefootnotes=false;/*]]>*/</script>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Any questions ?</p>
 </div>
 <div id="footer" style="position: absolute; left: 5%; top: 80%; width: 90%;">
 <div id="footer-text">
-Version 1.0.3<br />
-Last updated 2011-09-01 07:56:41 Paris, Madrid (heure d’été)
+Version 1.0.4<br />
+Last updated 2014-08-07 14:25:39 Paris, Madrid (heure d’été)
 </div>
 <div id="footer-badges">
 <a href="http://validator.w3.org/check?uri=referer">
@@ -9259,7 +9323,7 @@ alt="Get Firefox!" />
 </div>
 </div>
 </div></div>
-<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes != ''){document.write("<hr/><p>"+slidefootnotes+"</p>");}/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (slidefootnotes){document.write("<hr/>"); w3c_slidy.slidefootnotes();}/*]]>*/</script>
 </div>
 <script type="text/javascript">
 /*<![CDATA[*/

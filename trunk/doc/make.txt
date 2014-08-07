@@ -4,6 +4,7 @@
 // edit accordingly to your AsciiDoc/OS settings
 ifdef::nt[]
 :asciidocdir: X:\\path\\to\\asciidoc\\
+:asciidocdir: C:\\outils\\asciidoc869\\
 :asciidocbin: {asciidocdir}asciidoc.py
 :cp: copy
 :ditaajar: X:\\path\\to\\ditaa\\ditaa0_9.jar
@@ -15,7 +16,7 @@ endif::nt[]
 
 ifdef::posix[]
 :asciidocdir: /etc/asciidoc/
-:asciidocbin: {asciidocdir}asciidoc.py
+:asciidocbin: /usr/bin/asciidoc
 :cp: cp 
 :ditaajar: /path/to/ditaa/ditaa0_9.jar
 endif::posix[]
@@ -45,7 +46,7 @@ endif::posix[]
 // global settings
 :volnitsky!:
 :verbose!:
-:slidy2backendversion: 1.0.3
+:slidy2backendversion: 1.0.4
 
 // generic commands defs
 :cmddb: {asciidocbin} -b docbook  -a revnumber={slidy2backendversion}
