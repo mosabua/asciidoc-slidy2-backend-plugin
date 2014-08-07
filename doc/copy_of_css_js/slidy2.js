@@ -2945,6 +2945,18 @@ if (!w3c_slidy.incremental_display) {value = "visible";}
 
     if (!w3c_slidy.lang)
       w3c_slidy.lang = "en";
+  },
+  // JMI
+  slidefootnotes: function () {
+    if (slidefootnotes) {
+    var spans = document.getElementsByTagName("span");
+    for (var i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnote") {
+        document.write("<p>"+spans[i].innerHTML+"</p>");
+        spans[i].className = "footnotedone";
+      }
+    }
+    }
   }
 };
 

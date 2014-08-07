@@ -8,6 +8,7 @@
 :Email:   inglebert@iut-blagnac.fr
 :max-width!: 25em
 :slidebackground:
+:source-highlighter: pygments
 
 ifdef::backend-slidy2[]
 include::slidybackgrounds.txt[]
@@ -140,12 +141,6 @@ ifdef::backend-slidy2[:slidebackground: asciidocslidy3]
 
 some contents
 
-ifdef::backend-slidy2[:slidebackground: asciidocprocess]
-
-==== title (level 3) with +asciidocprocess+ background
-
-some contents
-
 ifdef::backend-slidy2[:slidebackground: w3c]
 
 ===== title (level 4) with +w3c+ background
@@ -182,6 +177,34 @@ ifdef::backend-slidy2[:slidebackground!:]
 | |*and* image:images/w3c_home.png["W3C",align="right"] Slidy
 |=============================================
 
+ifdef::backend-slidy2[<<<]
+
+image:images/asciidoc.png["AsciiDoc",align="right"]
+
+[NOTE]
+.Admonition block
+====
+ Some contents
+====
+
+[horizontal]
+*Lorem*:: Fusce euismod commodo velit.  Qui in magna commodo, est
+labitur dolorum an. Est ne magna primis adolescens.
+
+  Fusce euismod commodo velit.
+
+*Ipsum*:: Vivamus fringilla mi eu lacus.
+- Vivamus fringilla mi eu lacus.
+- Donec eget arcu bibendum nunc consequat lobortis.
+
+ifdef::backend-slidy2[<<<]
+
+[source,python]
+.svg_callouts.py
+----
+include::../images/icons/callouts/svg_callouts.py[]
+----
+
 :incremental!:
 
 == non incremental section (level 1)
@@ -203,7 +226,6 @@ ifdef::backend-slidy2[:slidebackground!:]
 | |image:images/asciidoc.png["AsciiDoc",align="right"]
 | |*and* image:images/w3c_home.png["W3C",align="right"] Slidy
 |=============================================
-
 
 == incremental images
 

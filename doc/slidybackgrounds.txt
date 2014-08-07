@@ -47,12 +47,6 @@ image:images/asciidoc.png["AsciiDoc"]
 |==================================================
 &&&&
 
-
-[asciidocprocess]
-&&&&
-image:images/osmfmoma4.png[width="90%"]
-&&&&
-
 [w3c,opacity: 0.4; position: absolute; left: 0%; top: 0%; width: 100%;]
 &&&&
 image:images/w3c_home.png["W3C",width="100%"]
