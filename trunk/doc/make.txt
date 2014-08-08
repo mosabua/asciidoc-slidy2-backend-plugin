@@ -4,12 +4,10 @@
 // edit accordingly to your AsciiDoc/OS settings
 ifdef::nt[]
 :asciidocdir: X:\\path\\to\\asciidoc\\
-:asciidocdir: C:\\outils\\asciidoc869\\
 :asciidocbin: {asciidocdir}asciidoc.py
 :cp: copy
 :ditaajar: X:\\path\\to\\ditaa\\ditaa0_9.jar
 :dbdir: X:\\path\\to\\docbook\\
-:dbdir: D:\\JMI\\tools\\docbook\\
 :xsltprocbin: {dbdir}bin\\xsltproc
 :fopbin: {dbdir}fop\\fop.bat
 endif::nt[]
