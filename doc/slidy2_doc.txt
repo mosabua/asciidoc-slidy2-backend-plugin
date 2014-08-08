@@ -5,7 +5,7 @@
 :Author:  Jean-Michel Inglebert
 :Author Initials: JMI
 :Date:   August, 2014
-:Email:   inglebert@iut-blagnac.fr
+:Email:   jeanmichel.inglebert@gmail.com
 :slideshowlocation: Your Computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169; 
 :duration: 7
@@ -666,7 +666,7 @@ NOTE: This backend plugin requires http://www.methods.co.nz/asciidoc[AsciiDoc] 8
 
 This http://www.methods.co.nz/asciidoc[AsciiDoc] backend plugin is hosted at http://code.google.com/p/asciidoc-slidy2-backend-plugin/.
 
-1. Download the latest release ({revnumber}) zip file from http://code.google.com/p/asciidoc-slidy2-backend-plugin/downloads/list
+1. Download the latest release ({revnumber}) zip file from https://drive.google.com/folderview?id=0B0gHfOWvt8InTmlMcUg3SjZZMGM&usp=sharing
 
 2. Install the release with one of the following http://www.methods.co.nz/asciidoc[AsciiDoc] +backend+ commands :
 +

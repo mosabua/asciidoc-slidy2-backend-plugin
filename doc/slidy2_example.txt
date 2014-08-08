@@ -5,7 +5,7 @@
 :Author:  Jean-Michel Inglebert
 :Author Initials: JMI
 :Date:   August, 2011
-:Email:   inglebert@iut-blagnac.fr
+:Email:   jeanmichel.inglebert@gmail.com
 :max-width!: 25em
 :slidebackground:
 :source-highlighter: pygments
